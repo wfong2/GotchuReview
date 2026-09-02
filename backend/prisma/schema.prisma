@@ -1,0 +1,180 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─── Users ───────────────────────────────────────────────
+
+model User {
+  id                      String              @id @default(uuid())
+  googleEmail             String              @unique
+  displayName             String
+  firebaseUid             String              @unique
+  creditBalance           Int                 @default(0)
+
+  // Notification preferences
+  notifyNewReview         Boolean             @default(true)
+  notifyPriceUpdate       Boolean             @default(true)
+  notifyInvoiceProcessed  Boolean             @default(true)
+  notifyDraftReminder     Boolean             @default(true)
+
+  // Preferred location
+  prefZipCode             String              @default("")
+  prefCity                String              @default("")
+  prefState               String              @default("")
+  prefCountry             String              @default("US")
+
+  fcmToken                String?
+
+  createdAt               DateTime            @default(now())
+  updatedAt               DateTime            @updatedAt
+
+  reviews                 Review[]
+  invoices                Invoice[]
+  creditTransactions      CreditTransaction[]
+
+  @@map("users")
+}
+
+// ─── Contractors ─────────────────────────────────────────
+
+model Contractor {
+  id                String   @id @default(uuid())
+  name              String
+  businessName      String   @default("")
+  nameVariants      String[] @default([])
+  category          String
+  phone             String   @default("")
+  email             String   @default("")
+  website           String   @default("")
+
+  // Location
+  city              String   @default("")
+  state             String   @default("")
+  zipCode           String   @default("")
+  country           String   @default("US")
+  latitude          Float?
+  longitude         Float?
+
+  // Aggregate ratings (recomputed on each new review)
+  ratingOverall       Float  @default(0)
+  ratingQuality       Float  @default(0)
+  ratingCommunication Float  @default(0)
+  ratingTimeliness    Float  @default(0)
+  ratingValue         Float  @default(0)
+  reviewCount         Int    @default(0)
+
+  // Aggregate pricing (recomputed on each new invoice)
+  pricingCurrency      String @default("USD")
+  pricingMin           Float  @default(0)
+  pricingMax           Float  @default(0)
+  pricingMedian        Float  @default(0)
+  pricingLaborMedian   Float  @default(0)
+  pricingMaterialsMedian Float @default(0)
+  pricingLaborRatio    Float  @default(0)
+
+  createdFromInvoiceId String?
+
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  reviews            Review[]
+  invoices           Invoice[]
+
+  @@index([category, zipCode])
+  @@map("contractors")
+}
+
+// ─── Reviews ─────────────────────────────────────────────
+
+model Review {
+  id              String     @id @default(uuid())
+  contractorId    String
+  userId          String
+  ratingQuality   Int
+  ratingCommunication Int
+  ratingTimeliness Int
+  ratingValue     Int
+  overallRating   Float
+  title           String
+  body            String
+  workType        String
+  isVerified      Boolean    @default(false)
+  invoiceId       String?    @unique
+
+  createdAt       DateTime   @default(now())
+
+  contractor      Contractor @relation(fields: [contractorId], references: [id])
+  user            User       @relation(fields: [userId], references: [id])
+  invoice         Invoice?   @relation(fields: [invoiceId], references: [id])
+
+  @@index([contractorId, createdAt(sort: Desc)])
+  @@index([userId])
+  @@map("reviews")
+}
+
+// ─── Invoices ────────────────────────────────────────────
+
+enum InvoiceSource {
+  invoice
+  estimated_same_contractor
+}
+
+model Invoice {
+  id              String        @id @default(uuid())
+  contractorId    String
+  userId          String
+  documentHash    String        @unique
+  totalAmount     Float
+  currency        String        @default("USD")
+  laborCost       Float?
+  materialsCost   Float?
+  hourlyRate      Float?
+  projectDuration String?
+  invoiceDate     DateTime?
+  description     String        @default("")
+  zipCode         String        @default("")
+  lineItems       Json          @default("[]")
+  source          InvoiceSource @default(invoice)
+
+  createdAt       DateTime      @default(now())
+
+  contractor      Contractor    @relation(fields: [contractorId], references: [id])
+  user            User          @relation(fields: [userId], references: [id])
+  review          Review?
+
+  @@index([contractorId])
+  @@index([userId])
+  @@map("invoices")
+}
+
+// ─── Credit Transactions ─────────────────────────────────
+
+enum CreditType {
+  invoice_scan
+  additional_invoice
+  view_pricing
+  view_review
+  generate_report
+  purchase
+}
+
+model CreditTransaction {
+  id          String     @id @default(uuid())
+  userId      String
+  amount      Int
+  type        CreditType
+  description String
+  relatedId   String?
+
+  createdAt   DateTime   @default(now())
+
+  user        User       @relation(fields: [userId], references: [id])
+
+  @@index([userId, createdAt(sort: Desc)])
+  @@map("credit_transactions")
+}

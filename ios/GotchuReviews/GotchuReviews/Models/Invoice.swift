@@ -1,0 +1,66 @@
+import Foundation
+
+struct ExtractedInvoice: Codable {
+    let contractorName: String
+    let businessName: String
+    let totalAmount: Double
+    let currency: String
+    let laborCost: Double?
+    let materialsCost: Double?
+    let hourlyRate: Double?
+    let projectDuration: String?
+    let invoiceDate: String?
+    let description: String
+    let lineItems: [LineItem]
+    let contractorPhone: String?
+    let contractorEmail: String?
+    let contractorAddress: String?
+    let zipCode: String?
+}
+
+struct LineItem: Codable {
+    let description: String
+    let amount: Double
+    let category: String
+}
+
+struct ExtractionResponse: Codable {
+    let extracted: ExtractedInvoice
+    let documentHash: String
+    let contractorMatches: [ContractorMatch]
+    let estimatedBreakdown: Bool
+}
+
+struct HistoryResponse: Codable {
+    let history: [String: [HistoryInvoice]]
+    let summary: HistorySummary
+}
+
+struct HistoryInvoice: Codable, Identifiable {
+    let id: String
+    let totalAmount: Double
+    let description: String
+    let invoiceDate: String?
+    let createdAt: String
+    let contractor: ContractorBrief
+    let review: ReviewBrief?
+}
+
+struct ContractorBrief: Codable {
+    let id: String
+    let name: String
+    let businessName: String
+    let category: String
+}
+
+struct ReviewBrief: Codable {
+    let id: String
+    let overallRating: Double
+    let title: String
+}
+
+struct HistorySummary: Codable {
+    let totalInvoices: Int
+    let totalSpent: Double
+    let contractorCount: Int
+}

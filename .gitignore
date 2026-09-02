@@ -1,0 +1,18 @@
+# Backend
+backend/node_modules/
+backend/dist/
+backend/.env
+*.log
+
+# iOS
+ios/**/*.xcuserdata/
+ios/**/DerivedData/
+ios/**/*.xcworkspace/
+ios/**/Pods/
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# OS
+.DS_Store
+Thumbs.db

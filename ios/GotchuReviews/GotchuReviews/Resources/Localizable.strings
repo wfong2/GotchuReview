@@ -1,0 +1,139 @@
+/* App */
+"app.name" = "Gotchu Reviews";
+
+/* Tabs */
+"tab.explore" = "Explore";
+"tab.scan" = "Scan";
+"tab.history" = "History";
+
+/* Common */
+"common.cancel" = "Cancel";
+"common.done" = "Done";
+"common.ok" = "OK";
+"common.error" = "Error";
+
+/* Onboarding */
+"onboarding.title" = "Gotchu Reviews";
+"onboarding.subtitle" = "Real reviews backed by real invoices";
+"onboarding.feature1" = "Scan invoices for verified reviews";
+"onboarding.feature2" = "See what contractors actually charge";
+"onboarding.feature3" = "Track your service history";
+"onboarding.getStarted" = "Get Started";
+"onboarding.whatToDo" = "What would you like to do?";
+"onboarding.haveInvoice" = "I have an invoice";
+"onboarding.haveInvoiceDesc" = "Scan & leave a review";
+"onboarding.lookingFor" = "I'm looking for a contractor";
+"onboarding.lookingForDesc" = "Browse verified reviews & pricing";
+
+/* Explore */
+"explore.searchPlaceholder" = "Search contractors";
+"explore.zipPlaceholder" = "Enter zip code";
+"explore.whatService" = "What service do you need?";
+"explore.recentInArea" = "Recent in your area";
+
+/* Search */
+"search.title" = "Search";
+"search.placeholder" = "Contractor name or type";
+"search.results" = "results";
+
+/* Categories */
+"category.plumber" = "Plumber";
+"category.electrician" = "Electrician";
+"category.roofer" = "Roofer";
+"category.painter" = "Painter";
+"category.hvac" = "HVAC";
+"category.general" = "General";
+"category.landscaper" = "Landscaper";
+"category.carpenter" = "Carpenter";
+"category.mason" = "Mason";
+"category.flooring" = "Flooring";
+
+/* Contractor */
+"contractor.typical" = "Typical";
+"contractor.overall" = "overall";
+"contractor.verifiedReviews" = "verified reviews";
+"contractor.pricing" = "Pricing";
+"contractor.typicalJob" = "Typical job (median)";
+"contractor.labor" = "Labor";
+"contractor.materials" = "Materials";
+"contractor.range" = "Range";
+"contractor.basedOn" = "Based on %d verified invoices in %@";
+"contractor.reviews" = "Reviews";
+
+/* Reviews */
+"review.singular" = "review";
+"review.plural" = "reviews";
+"review.aiEstimated" = "Labor est. by AI";
+"review.reviewing" = "Reviewing:";
+"review.work" = "Work:";
+"review.rateExperience" = "Rate your experience";
+"review.titleLabel" = "Title";
+"review.titlePlaceholder" = "Sum up your experience";
+"review.bodyLabel" = "Your review";
+"review.invoiceVerified" = "Invoice verified (+5 credits)";
+"review.submit" = "Submit Review";
+
+/* Ratings */
+"rating.quality" = "Quality";
+"rating.communication" = "Communication";
+"rating.timeliness" = "Timeliness";
+"rating.value" = "Value";
+
+/* Scan */
+"scan.title" = "Scan Invoice";
+"scan.instruction" = "Scan your invoice";
+"scan.alignInvoice" = "Take a clear photo of the full invoice";
+"scan.capture" = "Take Photo";
+"scan.fromGallery" = "Or select from gallery";
+"scan.extracting" = "Reading your invoice...";
+"scan.extractingDesc" = "AI is extracting contractor info, pricing, and work details from your invoice";
+"scan.extracted" = "Invoice Extracted";
+"scan.contractor" = "Contractor";
+"scan.matchFound" = "Match found!";
+"scan.newContractor" = "New contractor — profile will be created";
+"scan.yesSame" = "Yes, same";
+"scan.noNew" = "No, new";
+"scan.total" = "Total";
+"scan.labor" = "Labor";
+"scan.materials" = "Materials";
+"scan.date" = "Date";
+"scan.work" = "Work";
+"scan.estimatedBreakdown" = "Breakdown estimated from this contractor's other invoices";
+"scan.rescan" = "Doesn't look right? Re-scan";
+"scan.confirm" = "Confirm";
+"scan.duplicateInvoice" = "This invoice has already been scanned.";
+
+/* Submitted */
+"submitted.title" = "Review Submitted!";
+"submitted.body" = "Your verified review helps other consumers find great contractors.";
+"submitted.credits" = "credits earned";
+"submitted.scanAnother" = "Scan Another Invoice";
+
+/* History */
+"history.title" = "Service History";
+"history.totalSpent" = "Total Spent";
+"history.contractors" = "Contractors";
+"history.jobs" = "Jobs";
+"history.empty" = "No service history yet. Scan an invoice to get started.";
+"history.credits" = "Credits";
+
+/* Settings */
+"settings.title" = "Settings";
+"settings.account" = "Account";
+"settings.email" = "Email";
+"settings.credits" = "Credits";
+"settings.notSignedIn" = "Not signed in";
+"settings.notifications" = "Notifications";
+"settings.notifyNewReview" = "New reviews on my contractors";
+"settings.notifyPriceUpdate" = "Price updates in my area";
+"settings.notifyInvoice" = "Invoice processed";
+"settings.notifyDraft" = "Draft reminders";
+"settings.signOut" = "Sign Out";
+"settings.about" = "About";
+"settings.version" = "Version";
+
+/* Errors */
+"error.invalidURL" = "Invalid URL";
+"error.unauthorized" = "Please sign in to continue";
+"error.decodingError" = "Failed to process server response";
+"error.duplicateInvoice" = "This invoice has already been scanned";
