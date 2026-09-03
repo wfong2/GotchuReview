@@ -77,6 +77,8 @@ model Contractor {
   pricingMaterialsMedian Float @default(0)
   pricingLaborRatio    Float  @default(0)
 
+  vendorFingerprints String[]  @default([])
+
   createdFromInvoiceId String?
 
   createdAt          DateTime @default(now())
@@ -140,6 +142,8 @@ model Invoice {
   zipCode         String        @default("")
   lineItems       Json          @default("[]")
   source          InvoiceSource @default(invoice)
+  vendorFingerprint    String?
+  vendorTemplateData   Json?
 
   createdAt       DateTime      @default(now())
 

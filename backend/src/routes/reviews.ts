@@ -14,6 +14,8 @@ router.post('/', requireAuth, async (req: AuthRequest, res: Response) => {
       newContractor, // If no existing contractor matched
       invoiceData,
       documentHash,
+      vendorFingerprint,
+      vendorTemplate,
       ratings,
       title,
       body,
@@ -71,8 +73,26 @@ router.post('/', requireAuth, async (req: AuthRequest, res: Response) => {
         zipCode: invoiceData.zipCode || '',
         lineItems: invoiceData.lineItems || [],
         source: estimatedBreakdown ? 'estimated_same_contractor' : 'invoice',
+        vendorFingerprint: vendorFingerprint || null,
+        vendorTemplateData: vendorTemplate || undefined,
       },
     });
+
+    // Append vendor fingerprint to contractor if not already present
+    if (vendorFingerprint) {
+      const currentContractor = await prisma.contractor.findUnique({
+        where: { id: resolvedContractorId },
+        select: { vendorFingerprints: true },
+      });
+      if (currentContractor && !currentContractor.vendorFingerprints.includes(vendorFingerprint)) {
+        await prisma.contractor.update({
+          where: { id: resolvedContractorId },
+          data: {
+            vendorFingerprints: { push: vendorFingerprint },
+          },
+        });
+      }
+    }
 
     // Create review
     const overallRating = (ratings.quality + ratings.communication + ratings.timeliness + ratings.value) / 4;

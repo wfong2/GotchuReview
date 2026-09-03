@@ -39,7 +39,8 @@ router.post('/extract', requireAuth, upload.single('image'), async (req: AuthReq
       extracted.contractorName || extracted.businessName,
       undefined,
       extracted.zipCode || undefined,
-      extracted.contractorPhone || undefined
+      extracted.contractorPhone || undefined,
+      extracted.vendorFingerprint || undefined
     );
 
     // Check if same-contractor estimation is possible
@@ -69,6 +70,8 @@ router.post('/extract', requireAuth, upload.single('image'), async (req: AuthReq
     res.json({
       extracted,
       documentHash,
+      vendorFingerprint: extracted.vendorFingerprint || null,
+      vendorTemplate: extracted.vendorTemplate || null,
       contractorMatches: matches.map((m) => ({
         contractor: m.contractor,
         confidence: Math.round(m.score * 100),

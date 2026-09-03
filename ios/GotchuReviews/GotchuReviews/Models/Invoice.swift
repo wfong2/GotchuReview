@@ -1,5 +1,16 @@
 import Foundation
 
+struct VendorTemplate: Codable {
+    let vendorNameNormalized: String
+    let fieldLabels: [String]
+    let sectionOrder: [String]
+    let invoiceNumberFormat: String
+    let logoPosition: String
+    let fontCategory: String
+    let dominantColors: [String]
+    let tableStyle: String
+}
+
 struct ExtractedInvoice: Codable {
     let contractorName: String
     let businessName: String
@@ -16,6 +27,7 @@ struct ExtractedInvoice: Codable {
     let contractorEmail: String?
     let contractorAddress: String?
     let zipCode: String?
+    let vendorTemplate: VendorTemplate?
 }
 
 struct LineItem: Codable {
@@ -27,6 +39,8 @@ struct LineItem: Codable {
 struct ExtractionResponse: Codable {
     let extracted: ExtractedInvoice
     let documentHash: String
+    let vendorFingerprint: String?
+    let vendorTemplate: VendorTemplate?
     let contractorMatches: [ContractorMatch]
     let estimatedBreakdown: Bool
 }
