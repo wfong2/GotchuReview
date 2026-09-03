@@ -41,7 +41,7 @@ struct HistoryView: View {
                         }
 
                         // Vendor list
-                        ForEach(viewModel.vendors) { vendor in
+                        ForEach(viewModel.sortedVendors) { vendor in
                             NavigationLink(destination: VendorInvoiceListView(vendor: vendor)) {
                                 VendorRowView(vendor: vendor)
                             }
@@ -82,6 +82,22 @@ struct HistoryView: View {
             }
             .navigationTitle(NSLocalizedString("history.title", comment: ""))
             .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Menu {
+                        Button {
+                            viewModel.sortOption = .recentFirst
+                        } label: {
+                            Label("Most Recent", systemImage: viewModel.sortOption == .recentFirst ? "checkmark" : "")
+                        }
+                        Button {
+                            viewModel.sortOption = .name
+                        } label: {
+                            Label("Name", systemImage: viewModel.sortOption == .name ? "checkmark" : "")
+                        }
+                    } label: {
+                        Image(systemName: "arrow.up.arrow.down")
+                    }
+                }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         showSettings = true

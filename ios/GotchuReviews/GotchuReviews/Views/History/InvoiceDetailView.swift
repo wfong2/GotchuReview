@@ -142,6 +142,12 @@ struct FullImageView: View {
     let documentHash: String
     @Binding var isPresented: Bool
 
+    @State private var scale: CGFloat = 1.0
+    @State private var lastScale: CGFloat = 1.0
+    @State private var offset: CGSize = .zero
+    @State private var lastOffset: CGSize = .zero
+    @State private var showSavedAlert = false
+
     var body: some View {
         ZStack {
             Color.black.ignoresSafeArea()
@@ -150,11 +156,67 @@ struct FullImageView: View {
                 Image(uiImage: image)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
+                    .scaleEffect(scale)
+                    .offset(offset)
+                    .gesture(
+                        MagnifyGesture()
+                            .onChanged { value in
+                                scale = lastScale * value.magnification
+                            }
+                            .onEnded { value in
+                                scale = max(1.0, lastScale * value.magnification)
+                                lastScale = scale
+                                if scale == 1.0 {
+                                    offset = .zero
+                                    lastOffset = .zero
+                                }
+                            }
+                            .simultaneously(with:
+                                DragGesture()
+                                    .onChanged { value in
+                                        if scale > 1.0 {
+                                            offset = CGSize(
+                                                width: lastOffset.width + value.translation.width,
+                                                height: lastOffset.height + value.translation.height
+                                            )
+                                        }
+                                    }
+                                    .onEnded { _ in
+                                        lastOffset = offset
+                                    }
+                            )
+                    )
+                    .onTapGesture(count: 2) {
+                        withAnimation(.easeInOut(duration: 0.25)) {
+                            if scale > 1.0 {
+                                scale = 1.0
+                                lastScale = 1.0
+                                offset = .zero
+                                lastOffset = .zero
+                            } else {
+                                scale = 3.0
+                                lastScale = 3.0
+                            }
+                        }
+                    }
             }
 
             VStack {
                 HStack {
+                    Button {
+                        if let image = InvoiceImageStore.shared.loadImage(documentHash: documentHash) {
+                            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+                            showSavedAlert = true
+                        }
+                    } label: {
+                        Image(systemName: "square.and.arrow.down")
+                            .font(.title2)
+                            .foregroundColor(.white)
+                    }
+                    .padding()
+
                     Spacer()
+
                     Button {
                         isPresented = false
                     } label: {
@@ -166,6 +228,9 @@ struct FullImageView: View {
                 }
                 Spacer()
             }
+        }
+        .alert("Saved to Photos", isPresented: $showSavedAlert) {
+            Button("OK", role: .cancel) {}
         }
     }
 }

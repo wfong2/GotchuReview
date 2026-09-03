@@ -24,6 +24,13 @@
 	<string>GotchuReviews needs access to your camera to scan invoices and receipts.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>GotchuReviews needs access to your photo library to select invoice and receipt images.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>GotchuReviews needs permission to save invoice images to your photo library.</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsLocalNetworking</key>
+		<true/>
+	</dict>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
