@@ -65,6 +65,8 @@ struct ContractorBrief: Codable {
     let name: String
     let businessName: String
     let category: String
+    let city: String?
+    let state: String?
 }
 
 struct ReviewBrief: Codable {
@@ -77,4 +79,35 @@ struct HistorySummary: Codable {
     let totalInvoices: Int
     let totalSpent: Double
     let contractorCount: Int
+}
+
+struct VendorHistoryResponse: Codable {
+    let vendors: [VendorGroup]
+    let summary: HistorySummary
+}
+
+struct VendorGroup: Codable, Identifiable {
+    let contractor: ContractorBrief
+    let invoiceCount: Int
+    let totalSpent: Double
+    let latestInvoiceDate: String
+    let invoices: [DetailedInvoice]
+    var id: String { contractor.id }
+}
+
+struct DetailedInvoice: Codable, Identifiable {
+    let id: String
+    let documentHash: String
+    let totalAmount: Double
+    let currency: String
+    let laborCost: Double?
+    let materialsCost: Double?
+    let hourlyRate: Double?
+    let projectDuration: String?
+    let invoiceDate: String?
+    let description: String
+    let lineItems: [LineItem]
+    let createdAt: String
+    let contractor: ContractorBrief
+    let review: ReviewBrief?
 }

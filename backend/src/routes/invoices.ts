@@ -9,15 +9,16 @@ import prisma from '../config/database';
 const router = Router();
 const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 10 * 1024 * 1024 } });
 
-// POST /api/v1/invoices/extract — Send invoice image, return extracted data + contractor matches
+// POST /api/v1/invoices/extract — Send invoice image or PDF, return extracted data + contractor matches
 router.post('/extract', requireAuth, upload.single('image'), async (req: AuthRequest, res: Response) => {
   try {
     if (!req.file) {
-      res.status(400).json({ error: 'Invoice image is required' });
+      res.status(400).json({ error: 'Invoice file is required' });
       return;
     }
 
-    const imageBase64 = req.file.buffer.toString('base64');
+    const fileBase64 = req.file.buffer.toString('base64');
+    const mimeType = req.file.mimetype || 'image/jpeg';
 
     // Generate document hash for duplicate detection
     const documentHash = 'sha256:' + crypto.createHash('sha256').update(req.file.buffer).digest('hex');
@@ -32,7 +33,7 @@ router.post('/extract', requireAuth, upload.single('image'), async (req: AuthReq
     }
 
     // Extract data via OpenAI Vision
-    const extracted = await extractInvoiceData(imageBase64);
+    const extracted = await extractInvoiceData(fileBase64, mimeType);
 
     // Find matching contractors
     const matches = await findMatchingContractors(

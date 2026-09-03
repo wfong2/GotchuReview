@@ -54,12 +54,14 @@ router.patch('/me', requireAuth, async (req: AuthRequest, res: Response) => {
 // GET /api/v1/users/me/history — Get user's service history
 router.get('/me/history', requireAuth, async (req: AuthRequest, res: Response) => {
   try {
+    const groupBy = req.query.groupBy as string | undefined;
+
     const invoices = await prisma.invoice.findMany({
       where: { userId: req.user!.id },
       orderBy: { createdAt: 'desc' },
       include: {
         contractor: {
-          select: { id: true, name: true, businessName: true, category: true },
+          select: { id: true, name: true, businessName: true, category: true, city: true, state: true },
         },
         review: {
           select: { id: true, overallRating: true, title: true },
@@ -67,24 +69,43 @@ router.get('/me/history', requireAuth, async (req: AuthRequest, res: Response) =
       },
     });
 
-    // Group by year
-    const history: Record<string, typeof invoices> = {};
-    for (const invoice of invoices) {
-      const year = invoice.createdAt.getFullYear().toString();
-      if (!history[year]) history[year] = [];
-      history[year].push(invoice);
-    }
-
     const totalSpent = invoices.reduce((sum, i) => sum + i.totalAmount, 0);
+    const summary = {
+      totalInvoices: invoices.length,
+      totalSpent,
+      contractorCount: new Set(invoices.map((i) => i.contractorId)).size,
+    };
 
-    res.json({
-      history,
-      summary: {
-        totalInvoices: invoices.length,
-        totalSpent,
-        contractorCount: new Set(invoices.map((i) => i.contractorId)).size,
-      },
-    });
+    if (groupBy === 'vendor') {
+      const vendorMap: Record<string, typeof invoices> = {};
+      for (const invoice of invoices) {
+        const cid = invoice.contractorId;
+        if (!vendorMap[cid]) vendorMap[cid] = [];
+        vendorMap[cid].push(invoice);
+      }
+
+      const vendors = Object.values(vendorMap)
+        .map((group) => ({
+          contractor: group[0].contractor,
+          invoiceCount: group.length,
+          totalSpent: group.reduce((sum, i) => sum + i.totalAmount, 0),
+          latestInvoiceDate: group[0].createdAt.toISOString(),
+          invoices: group,
+        }))
+        .sort((a, b) => new Date(b.latestInvoiceDate).getTime() - new Date(a.latestInvoiceDate).getTime());
+
+      res.json({ vendors, summary });
+    } else {
+      // Group by year (default)
+      const history: Record<string, typeof invoices> = {};
+      for (const invoice of invoices) {
+        const year = invoice.createdAt.getFullYear().toString();
+        if (!history[year]) history[year] = [];
+        history[year].push(invoice);
+      }
+
+      res.json({ history, summary });
+    }
   } catch (error) {
     console.error('History error:', error);
     res.status(500).json({ error: 'Failed to get history' });

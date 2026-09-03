@@ -120,7 +120,7 @@ function getMockExtractionData(): ExtractedInvoiceData {
   };
 }
 
-export async function extractInvoiceData(imageBase64: string): Promise<ExtractedInvoiceData> {
+export async function extractInvoiceData(imageBase64: string, mimeType: string = 'image/jpeg'): Promise<ExtractedInvoiceData> {
   if (!openai) {
     console.warn('[Invoice] No OpenAI API key — returning mock extraction data');
     await new Promise((resolve) => setTimeout(resolve, 1500));
@@ -137,7 +137,7 @@ export async function extractInvoiceData(imageBase64: string): Promise<Extracted
           {
             type: 'image_url',
             image_url: {
-              url: `data:image/jpeg;base64,${imageBase64}`,
+              url: `data:${mimeType};base64,${imageBase64}`,
               detail: 'high',
             },
           },

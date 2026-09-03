@@ -1,5 +1,6 @@
 import SwiftUI
 import AVFoundation
+import PDFKit
 
 @MainActor
 class ScanViewModel: ObservableObject {
@@ -30,14 +31,25 @@ class ScanViewModel: ObservableObject {
         case submitted
     }
 
-    func extractInvoice(imageData: Data) async {
+    func extractInvoice(imageData: Data, mimeType: String = "image/jpeg") async {
         flowStep = .extracting
         isExtracting = true
         errorMessage = nil
 
         do {
-            let result = try await APIClient.shared.extractInvoice(imageData: imageData)
+            let result = try await APIClient.shared.extractInvoice(imageData: imageData, mimeType: mimeType)
             extractionResult = result
+
+            // For PDFs, render first page as JPEG for local storage; for images, save directly
+            if mimeType == "application/pdf" {
+                if let pdfImage = Self.renderPDFFirstPage(data: imageData),
+                   let jpegData = pdfImage.jpegData(compressionQuality: 0.8) {
+                    capturedImage = pdfImage
+                    InvoiceImageStore.shared.save(imageData: jpegData, documentHash: result.documentHash)
+                }
+            } else {
+                InvoiceImageStore.shared.save(imageData: imageData, documentHash: result.documentHash)
+            }
 
             // Auto-select top contractor match if confidence > 70%
             if let topMatch = result.contractorMatches.first, topMatch.confidence > 70 {
@@ -145,5 +157,21 @@ class ScanViewModel: ObservableObject {
         reviewTitle = ""
         reviewBody = ""
         flowStep = .camera
+    }
+
+    static func renderPDFFirstPage(data: Data) -> UIImage? {
+        guard let document = PDFDocument(data: data),
+              let page = document.page(at: 0) else { return nil }
+        let bounds = page.bounds(for: .mediaBox)
+        let scale: CGFloat = 2.0
+        let size = CGSize(width: bounds.width * scale, height: bounds.height * scale)
+        let renderer = UIGraphicsImageRenderer(size: size)
+        return renderer.image { ctx in
+            UIColor.white.setFill()
+            ctx.fill(CGRect(origin: .zero, size: size))
+            ctx.cgContext.translateBy(x: 0, y: size.height)
+            ctx.cgContext.scaleBy(x: scale, y: -scale)
+            page.draw(with: .mediaBox, to: ctx.cgContext)
+        }
     }
 }

@@ -40,24 +40,16 @@ struct HistoryView: View {
                             .padding(.horizontal)
                         }
 
-                        // Grouped by year
-                        ForEach(viewModel.sortedYears, id: \.self) { year in
-                            VStack(alignment: .leading, spacing: 12) {
-                                Text(year)
-                                    .font(.title3)
-                                    .fontWeight(.bold)
-                                    .padding(.horizontal)
-
-                                if let invoices = viewModel.history[year] {
-                                    ForEach(invoices) { invoice in
-                                        HistoryItemView(invoice: invoice)
-                                            .padding(.horizontal)
-                                    }
-                                }
+                        // Vendor list
+                        ForEach(viewModel.vendors) { vendor in
+                            NavigationLink(destination: VendorInvoiceListView(vendor: vendor)) {
+                                VendorRowView(vendor: vendor)
                             }
+                            .buttonStyle(.plain)
+                            .padding(.horizontal)
                         }
 
-                        if viewModel.history.isEmpty {
+                        if viewModel.vendors.isEmpty {
                             VStack(spacing: 12) {
                                 Image(systemName: "doc.text")
                                     .font(.system(size: 48))
@@ -108,6 +100,62 @@ struct HistoryView: View {
     }
 }
 
+struct VendorRowView: View {
+    let vendor: VendorGroup
+
+    private var categoryIcon: String {
+        TradeCategory(rawValue: vendor.contractor.category)?.icon ?? "hammer.fill"
+    }
+
+    private var displayName: String {
+        vendor.contractor.businessName.isEmpty ? vendor.contractor.name : vendor.contractor.businessName
+    }
+
+    private var formattedDate: String {
+        String(vendor.latestInvoiceDate.prefix(10)).replacingOccurrences(of: "-", with: "/")
+    }
+
+    var body: some View {
+        HStack(spacing: 12) {
+            Image(systemName: categoryIcon)
+                .font(.title3)
+                .foregroundColor(.blue)
+                .frame(width: 40, height: 40)
+                .background(Color.blue.opacity(0.1))
+                .cornerRadius(10)
+
+            VStack(alignment: .leading, spacing: 4) {
+                Text(displayName)
+                    .font(.headline)
+                HStack {
+                    Text("\(vendor.invoiceCount) \(vendor.invoiceCount == 1 ? "invoice" : "invoices")")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                    Text("·")
+                        .foregroundColor(.secondary)
+                    Text(formattedDate)
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
+            }
+
+            Spacer()
+
+            Text("$\(Int(vendor.totalSpent))")
+                .font(.subheadline)
+                .fontWeight(.semibold)
+
+            Image(systemName: "chevron.right")
+                .font(.caption)
+                .foregroundColor(.secondary)
+        }
+        .padding()
+        .background(Color(.systemBackground))
+        .cornerRadius(12)
+        .shadow(color: .black.opacity(0.05), radius: 4, y: 2)
+    }
+}
+
 struct SummaryCard: View {
     let title: String
     let value: String
@@ -125,34 +173,5 @@ struct SummaryCard: View {
         .padding(.vertical, 12)
         .background(Color(.systemGray6))
         .cornerRadius(10)
-    }
-}
-
-struct HistoryItemView: View {
-    let invoice: HistoryInvoice
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            Text(invoice.contractor.name)
-                .font(.headline)
-            HStack {
-                Text(invoice.description.isEmpty ? invoice.contractor.category.capitalized : invoice.description)
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                Spacer()
-                Text("$\(Int(invoice.totalAmount))")
-                    .font(.subheadline)
-                    .fontWeight(.medium)
-            }
-            if let date = invoice.invoiceDate {
-                Text(date.prefix(10).replacingOccurrences(of: "-", with: "/"))
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-            }
-        }
-        .padding()
-        .background(Color(.systemBackground))
-        .cornerRadius(12)
-        .shadow(color: .black.opacity(0.05), radius: 4, y: 2)
     }
 }

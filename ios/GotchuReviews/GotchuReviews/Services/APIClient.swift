@@ -87,6 +87,22 @@ class APIClient {
         return response.user
     }
 
+    // MARK: - Dev Auth
+
+    #if DEBUG
+    struct DevAuthResponse: Codable {
+        let user: AppUser
+        let token: String
+    }
+
+    func devSignIn() async throws -> DevAuthResponse {
+        guard let request = makeRequest("/auth/dev", method: "POST") else {
+            throw APIError.invalidURL
+        }
+        return try await perform(request)
+    }
+    #endif
+
     // MARK: - Contractors
 
     struct ContractorListResponse: Codable {
@@ -121,17 +137,18 @@ class APIClient {
 
     // MARK: - Invoice Extraction
 
-    func extractInvoice(imageData: Data) async throws -> ExtractionResponse {
+    func extractInvoice(imageData: Data, mimeType: String = "image/jpeg") async throws -> ExtractionResponse {
         let boundary = UUID().uuidString
+        let filename = mimeType == "application/pdf" ? "invoice.pdf" : "invoice.jpg"
         var body = Data()
 
         body.append("--\(boundary)\r\n".data(using: .utf8)!)
-        body.append("Content-Disposition: form-data; name=\"image\"; filename=\"invoice.jpg\"\r\n".data(using: .utf8)!)
-        body.append("Content-Type: image/jpeg\r\n\r\n".data(using: .utf8)!)
+        body.append("Content-Disposition: form-data; name=\"image\"; filename=\"\(filename)\"\r\n".data(using: .utf8)!)
+        body.append("Content-Type: \(mimeType)\r\n\r\n".data(using: .utf8)!)
         body.append(imageData)
         body.append("\r\n--\(boundary)--\r\n".data(using: .utf8)!)
 
-        guard var request = makeRequest("/invoices/extract", method: "POST", body: body, contentType: "multipart/form-data; boundary=\(boundary)") else {
+        guard let request = makeRequest("/invoices/extract", method: "POST", body: body, contentType: "multipart/form-data; boundary=\(boundary)") else {
             throw APIError.invalidURL
         }
 
@@ -208,6 +225,13 @@ class APIClient {
 
     func getHistory() async throws -> HistoryResponse {
         guard let request = makeRequest("/users/me/history") else {
+            throw APIError.invalidURL
+        }
+        return try await perform(request)
+    }
+
+    func getVendorHistory() async throws -> VendorHistoryResponse {
+        guard let request = makeRequest("/users/me/history?groupBy=vendor") else {
             throw APIError.invalidURL
         }
         return try await perform(request)

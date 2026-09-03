@@ -1,10 +1,12 @@
 import SwiftUI
 import PhotosUI
+import UniformTypeIdentifiers
 
 struct CameraView: View {
     @ObservedObject var viewModel: ScanViewModel
     @State private var showCamera = false
     @State private var showPhotoPicker = false
+    @State private var showDocumentPicker = false
     @State private var selectedPhoto: PhotosPickerItem?
 
     var body: some View {
@@ -45,6 +47,20 @@ struct CameraView: View {
             }
             .padding(.horizontal, 32)
 
+            // Upload file button
+            Button {
+                showDocumentPicker = true
+            } label: {
+                Label("Upload File", systemImage: "doc.badge.plus")
+                    .font(.headline)
+                    .foregroundColor(.blue)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.blue.opacity(0.1))
+                    .cornerRadius(14)
+            }
+            .padding(.horizontal, 32)
+
             // Photo library option
             PhotosPicker(
                 selection: $selectedPhoto,
@@ -77,6 +93,14 @@ struct CameraView: View {
                     Task {
                         await viewModel.extractInvoice(imageData: jpegData)
                     }
+                }
+            }
+        }
+        .sheet(isPresented: $showDocumentPicker) {
+            DocumentPickerView { data, mimeType, previewImage in
+                viewModel.capturedImage = previewImage
+                Task {
+                    await viewModel.extractInvoice(imageData: data, mimeType: mimeType)
                 }
             }
         }
@@ -115,6 +139,59 @@ struct ImagePickerView: UIViewControllerRepresentable {
         }
 
         func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+            parent.dismiss()
+        }
+    }
+}
+
+struct DocumentPickerView: UIViewControllerRepresentable {
+    let onDocumentPicked: (Data, String, UIImage?) -> Void
+    @Environment(\.dismiss) private var dismiss
+
+    func makeUIViewController(context: Context) -> UIDocumentPickerViewController {
+        let types: [UTType] = [.pdf, .image, .jpeg, .png, .heic]
+        let picker = UIDocumentPickerViewController(forOpeningContentTypes: types)
+        picker.delegate = context.coordinator
+        picker.allowsMultipleSelection = false
+        return picker
+    }
+
+    func updateUIViewController(_ uiViewController: UIDocumentPickerViewController, context: Context) {}
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+
+    class Coordinator: NSObject, UIDocumentPickerDelegate {
+        let parent: DocumentPickerView
+
+        init(_ parent: DocumentPickerView) {
+            self.parent = parent
+        }
+
+        func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+            guard let url = urls.first,
+                  url.startAccessingSecurityScopedResource() else { return }
+            defer { url.stopAccessingSecurityScopedResource() }
+
+            guard let data = try? Data(contentsOf: url) else { return }
+
+            let ext = url.pathExtension.lowercased()
+            if ext == "pdf" {
+                let preview = ScanViewModel.renderPDFFirstPage(data: data)
+                parent.onDocumentPicked(data, "application/pdf", preview)
+            } else {
+                // Image file
+                let image = UIImage(data: data)
+                if let image = image, let jpegData = image.jpegData(compressionQuality: 0.8) {
+                    parent.onDocumentPicked(jpegData, "image/jpeg", image)
+                }
+            }
+
+            parent.dismiss()
+        }
+
+        func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
             parent.dismiss()
         }
     }
