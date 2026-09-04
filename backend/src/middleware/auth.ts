@@ -1,10 +1,19 @@
 import { Request, Response, NextFunction } from 'express';
 import { User } from '@prisma/client';
 import { getFirebaseAuth } from '../config/firebase';
+import { config } from '../config';
 import prisma from '../config/database';
+
+const DEV_TOKEN = 'dev-token-gotchu-2024';
+const DEV_FIREBASE_UID = 'dev-test-uid-001';
 
 export interface AuthRequest extends Request {
   user?: User;
+}
+
+async function tryDevAuth(token: string): Promise<User | null> {
+  if (config.nodeEnv === 'production' || token !== DEV_TOKEN) return null;
+  return prisma.user.findUnique({ where: { firebaseUid: DEV_FIREBASE_UID } });
 }
 
 export async function requireAuth(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
@@ -15,6 +24,14 @@ export async function requireAuth(req: AuthRequest, res: Response, next: NextFun
   }
 
   const idToken = authHeader.split('Bearer ')[1];
+
+  // Dev token bypass (non-production only)
+  const devUser = await tryDevAuth(idToken);
+  if (devUser) {
+    req.user = devUser;
+    next();
+    return;
+  }
 
   try {
     const decodedToken = await getFirebaseAuth().verifyIdToken(idToken);
@@ -42,6 +59,14 @@ export async function optionalAuth(req: AuthRequest, _res: Response, next: NextF
   }
 
   const idToken = authHeader.split('Bearer ')[1];
+
+  // Dev token bypass (non-production only)
+  const devUser = await tryDevAuth(idToken);
+  if (devUser) {
+    req.user = devUser;
+    next();
+    return;
+  }
 
   try {
     const decodedToken = await getFirebaseAuth().verifyIdToken(idToken);

@@ -80,7 +80,8 @@ router.post('/extract', requireAuth, upload.single('image'), async (req: AuthReq
       estimatedBreakdown,
     });
   } catch (error) {
-    console.error('Invoice extraction error:', error);
+    console.error('Invoice extraction error:', error instanceof Error ? error.message : error);
+    console.error('Full error:', JSON.stringify(error, Object.getOwnPropertyNames(error || {}), 2));
     res.status(500).json({ error: 'Failed to extract invoice data' });
   }
 });

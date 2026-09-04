@@ -24,7 +24,7 @@ class APIClient {
     static let shared = APIClient()
 
     #if DEBUG
-    private let baseURL = "http://localhost:3000/api/v1"
+    private let baseURL = "http://192.168.1.243:3000/api/v1"
     #else
     private let baseURL = "https://api.gotchureviews.com/api/v1"
     #endif
@@ -60,6 +60,8 @@ class APIClient {
             do {
                 return try decoder.decode(T.self, from: data)
             } catch {
+                let preview = String(data: data.prefix(500), encoding: .utf8) ?? "n/a"
+                NSLog("[APIClient] Decoding error for %@: %@ | Response: %@", "\(T.self)", "\(error)", preview)
                 throw APIError.decodingError
             }
         case 401:

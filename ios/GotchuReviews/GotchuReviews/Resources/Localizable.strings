@@ -67,9 +67,9 @@
 "review.reviewing" = "Reviewing:";
 "review.work" = "Work:";
 "review.rateExperience" = "Rate your experience";
-"review.titleLabel" = "Title";
+"review.titleLabel" = "Review";
 "review.titlePlaceholder" = "Sum up your experience";
-"review.bodyLabel" = "Your review";
+"review.bodyLabel" = "Description (optional)";
 "review.invoiceVerified" = "Invoice verified (+5 credits)";
 "review.submit" = "Submit Review";
 

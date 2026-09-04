@@ -86,7 +86,7 @@ class ScanViewModel: ObservableObject {
     var canSubmitReview: Bool {
         ratingQuality > 0 && ratingCommunication > 0 &&
         ratingTimeliness > 0 && ratingValue > 0 &&
-        !reviewTitle.isEmpty && !reviewBody.isEmpty &&
+        !reviewTitle.isEmpty &&
         (selectedContractorId != nil || isNewContractor)
     }
 

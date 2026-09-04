@@ -36,6 +36,8 @@ export async function findMatchingContractors(
     includeScore: true,
   });
 
+  if (!name || !name.trim()) return [];
+
   const results = fuse.search(name);
 
   let matches: MatchCandidate[] = results.map((r) => ({

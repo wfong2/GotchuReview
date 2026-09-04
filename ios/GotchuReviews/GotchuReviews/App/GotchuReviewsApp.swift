@@ -9,6 +9,13 @@ struct GotchuReviewsApp: App {
             if authViewModel.hasCompletedOnboarding {
                 MainTabView()
                     .environmentObject(authViewModel)
+                    .task {
+                        #if DEBUG
+                        if !authViewModel.isSignedIn {
+                            authViewModel.devSignIn()
+                        }
+                        #endif
+                    }
             } else {
                 OnboardingView()
                     .environmentObject(authViewModel)

@@ -55,7 +55,22 @@ struct OnboardingView: View {
                         .cornerRadius(14)
                 }
                 .padding(.horizontal, 32)
-                .padding(.bottom, 40)
+
+                #if DEBUG
+                Button {
+                    authViewModel.devSignIn()
+                    authViewModel.completeOnboarding()
+                } label: {
+                    Text("Dev Sign In (localhost)")
+                        .font(.subheadline)
+                        .foregroundColor(.orange)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 10)
+                }
+                .padding(.horizontal, 32)
+                #endif
+
+                Spacer().frame(height: 20)
             }
             .tag(0)
 

@@ -21,6 +21,8 @@ export interface ExtractedInvoiceData {
     description: string;
     amount: number;
     category: 'labor' | 'materials' | 'other';
+    quantity: number;
+    unitPrice: number;
   }>;
   contractorPhone: string | null;
   contractorEmail: string | null;
@@ -45,7 +47,7 @@ Return ONLY valid JSON with these fields:
   "invoiceDate": null or "YYYY-MM-DD",
   "description": "Brief description of the work performed",
   "lineItems": [
-    { "description": "item description", "amount": 0.00, "category": "labor|materials|other" }
+    { "description": "item description", "amount": 0.00, "category": "labor|materials|other", "quantity": 1, "unitPrice": 0.00 }
   ],
   "contractorPhone": null or "phone number",
   "contractorEmail": null or "email",
@@ -67,6 +69,7 @@ Rules:
 - Extract exact values from the invoice. Do not estimate or guess.
 - If a field is not present on the invoice, use null.
 - For lineItems, categorize each as "labor", "materials", or "other".
+- For lineItems, "quantity" is the number of units (default 1), "unitPrice" is the price per single unit, and "amount" is quantity * unitPrice (the total for that line).
 - If labor and materials are not separately itemized, set laborCost and materialsCost to null.
 - Currency should be the 3-letter ISO code.
 - vendorTemplate describes the TEMPLATE STRUCTURE, not the invoice content — these fields should be identical across different invoices from the same vendor.
@@ -104,12 +107,12 @@ function getMockExtractionData(): ExtractedInvoiceData {
     invoiceDate: "2024-11-15",
     description: "Kitchen sink replacement and garbage disposal installation",
     lineItems: [
-      { description: "Remove old sink and disposal", amount: 250.00, category: "labor" },
-      { description: "Install new undermount sink", amount: 350.00, category: "labor" },
-      { description: "Install garbage disposal unit", amount: 250.00, category: "labor" },
-      { description: "Undermount stainless steel sink", amount: 220.00, category: "materials" },
-      { description: "InSinkErator garbage disposal", amount: 130.00, category: "materials" },
-      { description: "Plumbing fittings and supplies", amount: 50.00, category: "materials" },
+      { description: "Remove old sink and disposal", amount: 250.00, category: "labor", quantity: 1, unitPrice: 250.00 },
+      { description: "Install new undermount sink", amount: 350.00, category: "labor", quantity: 1, unitPrice: 350.00 },
+      { description: "Install garbage disposal unit", amount: 250.00, category: "labor", quantity: 1, unitPrice: 250.00 },
+      { description: "Undermount stainless steel sink", amount: 220.00, category: "materials", quantity: 1, unitPrice: 220.00 },
+      { description: "InSinkErator garbage disposal", amount: 130.00, category: "materials", quantity: 1, unitPrice: 130.00 },
+      { description: "Plumbing fittings and supplies", amount: 50.00, category: "materials", quantity: 1, unitPrice: 50.00 },
     ],
     contractorPhone: "(555) 234-5678",
     contractorEmail: "bob@bobsplumbing.com",
@@ -128,7 +131,7 @@ export async function extractInvoiceData(imageBase64: string, mimeType: string =
   }
 
   const response = await openai.chat.completions.create({
-    model: 'gpt-4o',
+    model: 'gpt-4o-mini',
     messages: [
       {
         role: 'user',
@@ -155,6 +158,21 @@ export async function extractInvoiceData(imageBase64: string, mimeType: string =
 
   const jsonString = content.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
   const data: ExtractedInvoiceData = JSON.parse(jsonString);
+
+  // Ensure string fields are never null (iOS Codable requires non-optional strings)
+  data.contractorName = data.contractorName || '';
+  data.businessName = data.businessName || '';
+  data.description = data.description || '';
+  data.currency = data.currency || 'USD';
+
+  // Ensure line items have quantity and unitPrice
+  if (data.lineItems) {
+    data.lineItems = data.lineItems.map((item) => ({
+      ...item,
+      quantity: item.quantity || 1,
+      unitPrice: item.unitPrice || item.amount / (item.quantity || 1),
+    }));
+  }
 
   if (data.vendorTemplate) {
     data.vendorFingerprint = computeVendorFingerprint(data.vendorTemplate);

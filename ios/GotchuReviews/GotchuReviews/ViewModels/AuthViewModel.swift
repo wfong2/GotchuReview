@@ -33,6 +33,25 @@ class AuthViewModel: ObservableObject {
         isLoading = false
     }
 
+    #if DEBUG
+    func devSignIn() {
+        isLoading = true
+        errorMessage = nil
+
+        Task {
+            do {
+                let response = try await APIClient.shared.devSignIn()
+                APIClient.shared.authToken = response.token
+                currentUser = response.user
+                isSignedIn = true
+            } catch {
+                errorMessage = error.localizedDescription
+            }
+            isLoading = false
+        }
+    }
+    #endif
+
     func signOut() {
         APIClient.shared.authToken = nil
         currentUser = nil

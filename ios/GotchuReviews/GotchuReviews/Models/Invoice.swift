@@ -34,6 +34,17 @@ struct LineItem: Codable {
     let description: String
     let amount: Double
     let category: String
+    let quantity: Int
+    let unitPrice: Double
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        description = try container.decode(String.self, forKey: .description)
+        amount = try container.decode(Double.self, forKey: .amount)
+        category = try container.decode(String.self, forKey: .category)
+        quantity = try container.decodeIfPresent(Int.self, forKey: .quantity) ?? 1
+        unitPrice = try container.decodeIfPresent(Double.self, forKey: .unitPrice) ?? amount
+    }
 }
 
 struct ExtractionResponse: Codable {

@@ -93,9 +93,15 @@ struct InvoiceDetailView: View {
                                 VStack(alignment: .leading, spacing: 2) {
                                     Text(item.description)
                                         .font(.subheadline)
-                                    Text(item.category)
-                                        .font(.caption)
-                                        .foregroundColor(.secondary)
+                                    HStack(spacing: 4) {
+                                        Text(item.category)
+                                        if item.quantity > 1 {
+                                            Text("·")
+                                            Text("qty \(item.quantity) @ $\(Int(item.unitPrice))/ea")
+                                        }
+                                    }
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
                                 }
                                 Spacer()
                                 Text("$\(Int(item.amount))")

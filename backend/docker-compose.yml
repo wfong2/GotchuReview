@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  postgres:
+    image: postgres:16-alpine
+    ports: ["5433:5432"]
+    environment:
+      POSTGRES_USER: gotchu
+      POSTGRES_PASSWORD: gotchu_dev
+      POSTGRES_DB: gotchu_reviews
+    volumes: [pgdata:/var/lib/postgresql/data]
+volumes:
+  pgdata:

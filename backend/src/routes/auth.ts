@@ -1,5 +1,6 @@
 import { Router, Request, Response } from 'express';
 import { getFirebaseAuth } from '../config/firebase';
+import { config } from '../config';
 import prisma from '../config/database';
 
 const router = Router();
@@ -38,5 +39,28 @@ router.post('/google', async (req: Request, res: Response) => {
     res.status(401).json({ error: 'Invalid token' });
   }
 });
+
+// POST /api/v1/auth/dev — Dev-only auth bypass (non-production)
+if (config.nodeEnv !== 'production') {
+  router.post('/dev', async (_req: Request, res: Response) => {
+    try {
+      const user = await prisma.user.upsert({
+        where: { firebaseUid: 'dev-test-uid-001' },
+        update: {},
+        create: {
+          firebaseUid: 'dev-test-uid-001',
+          googleEmail: 'dev@gotchureviews.com',
+          displayName: 'Dev User',
+          creditBalance: 50,
+        },
+      });
+
+      res.json({ user, token: 'dev-token-gotchu-2024' });
+    } catch (error) {
+      console.error('Dev auth error:', error);
+      res.status(500).json({ error: 'Failed to create dev user' });
+    }
+  });
+}
 
 export default router;
