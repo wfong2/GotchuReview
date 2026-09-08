@@ -54,7 +54,7 @@ struct ContractorDetailView: View {
                                 Text(NSLocalizedString("contractor.typicalJob", comment: ""))
                                     .foregroundColor(.secondary)
                                 Spacer()
-                                Text("$\(Int(contractor.pricingMedian))")
+                                Text("$\(Int(contractor.pricingMedian).formatted())")
                                     .fontWeight(.semibold)
                             }
 
@@ -63,14 +63,14 @@ struct ContractorDetailView: View {
                                     Text(NSLocalizedString("contractor.labor", comment: ""))
                                         .foregroundColor(.secondary)
                                     Spacer()
-                                    Text("$\(Int(contractor.pricingLaborMedian)) (\(Int(contractor.pricingLaborRatio * 100))%)")
+                                    Text("$\(Int(contractor.pricingLaborMedian).formatted()) (\(Int(contractor.pricingLaborRatio * 100))%)")
                                 }
 
                                 HStack {
                                     Text(NSLocalizedString("contractor.materials", comment: ""))
                                         .foregroundColor(.secondary)
                                     Spacer()
-                                    Text("$\(Int(contractor.pricingMaterialsMedian)) (\(Int((1 - contractor.pricingLaborRatio) * 100))%)")
+                                    Text("$\(Int(contractor.pricingMaterialsMedian).formatted()) (\(Int((1 - contractor.pricingLaborRatio) * 100))%)")
                                 }
                             }
 
@@ -153,7 +153,7 @@ struct ReviewCardView: View {
 
             if let invoice = review.invoice {
                 HStack {
-                    Text("$\(Int(invoice.totalAmount))")
+                    Text("$\(Int(invoice.totalAmount).formatted())")
                         .font(.subheadline)
                         .fontWeight(.medium)
                     if let date = invoice.invoiceDate {

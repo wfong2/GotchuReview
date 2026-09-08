@@ -2,10 +2,11 @@
 backend/node_modules/
 backend/dist/
 backend/.env
+backend/prisma/dev.db
 *.log
 
 # iOS
-ios/**/*.xcuserdata/
+**/xcuserdata/
 ios/**/DerivedData/
 ios/**/*.xcworkspace/
 ios/**/Pods/

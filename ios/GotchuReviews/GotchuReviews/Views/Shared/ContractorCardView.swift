@@ -33,7 +33,7 @@ struct ContractorCardView: View {
                     Text(NSLocalizedString("contractor.typical", comment: ""))
                         .font(.subheadline)
                         .foregroundColor(.secondary)
-                    Text("$\(Int(contractor.pricingMedian))")
+                    Text("$\(Int(contractor.pricingMedian).formatted())")
                         .font(.subheadline)
                         .fontWeight(.medium)
                     Text("·")

@@ -53,6 +53,8 @@ struct SettingsView: View {
                     if authViewModel.isSignedIn {
                         Button(role: .destructive) {
                             authViewModel.signOut()
+                            authViewModel.hasCompletedOnboarding = false
+                            UserDefaults.standard.set(false, forKey: "hasCompletedOnboarding")
                             dismiss()
                         } label: {
                             Text(NSLocalizedString("settings.signOut", comment: ""))

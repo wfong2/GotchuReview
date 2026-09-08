@@ -42,13 +42,13 @@ struct InvoiceExtractedView: View {
                     Divider()
 
                     // Extracted fields (read-only)
-                    ReadOnlyField(label: NSLocalizedString("scan.total", comment: ""), value: "$\(Int(extracted.totalAmount))")
+                    ReadOnlyField(label: NSLocalizedString("scan.total", comment: ""), value: "$\(Int(extracted.totalAmount).formatted())")
 
                     if let labor = extracted.laborCost {
-                        ReadOnlyField(label: NSLocalizedString("scan.labor", comment: ""), value: "$\(Int(labor))")
+                        ReadOnlyField(label: NSLocalizedString("scan.labor", comment: ""), value: "$\(Int(labor).formatted())")
                     }
                     if let materials = extracted.materialsCost {
-                        ReadOnlyField(label: NSLocalizedString("scan.materials", comment: ""), value: "$\(Int(materials))")
+                        ReadOnlyField(label: NSLocalizedString("scan.materials", comment: ""), value: "$\(Int(materials).formatted())")
                     }
                     if let date = extracted.invoiceDate {
                         ReadOnlyField(label: NSLocalizedString("scan.date", comment: ""), value: date)

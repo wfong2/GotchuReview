@@ -32,7 +32,16 @@ struct ExploreView: View {
                             text: $viewModel.zipCode
                         )
                         .keyboardType(.numberPad)
-                        .onSubmit { Task { await viewModel.search() } }
+
+                        if !viewModel.zipCode.isEmpty {
+                            Button {
+                                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                                Task { await viewModel.search() }
+                            } label: {
+                                Image(systemName: "magnifyingglass")
+                                    .fontWeight(.medium)
+                            }
+                        }
                     }
                     .padding(.horizontal)
 
@@ -90,10 +99,22 @@ struct ExploreView: View {
                             .buttonStyle(.plain)
                             .padding(.horizontal)
                         }
+                    } else if viewModel.hasSearched {
+                        VStack(spacing: 12) {
+                            Image(systemName: "magnifyingglass")
+                                .font(.system(size: 36))
+                                .foregroundColor(.secondary)
+                            Text(NSLocalizedString("search.noResults", comment: "No contractors found"))
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding(.top, 40)
                     }
                 }
                 .padding(.vertical)
             }
+            .scrollDismissesKeyboard(.interactively)
             .navigationTitle(NSLocalizedString("app.name", comment: ""))
             .navigationDestination(for: String.self) { contractorId in
                 ContractorDetailView(contractorId: contractorId)

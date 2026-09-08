@@ -32,7 +32,7 @@ struct Contractor: Codable, Identifiable {
 
     var priceRangeDisplay: String {
         guard pricingMin > 0 && pricingMax > 0 else { return "" }
-        return "$\(Int(pricingMin)) – $\(Int(pricingMax))"
+        return "$\(Int(pricingMin).formatted()) – $\(Int(pricingMax).formatted())"
     }
 }
 

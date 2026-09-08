@@ -36,7 +36,7 @@ struct VendorInvoiceListView: View {
                             .foregroundColor(.secondary)
                     }
 
-                    Text("$\(Int(vendor.totalSpent)) total across \(vendor.invoiceCount) \(vendor.invoiceCount == 1 ? "invoice" : "invoices")")
+                    Text("$\(Int(vendor.totalSpent).formatted()) total across \(vendor.invoiceCount) \(vendor.invoiceCount == 1 ? "invoice" : "invoices")")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }
@@ -99,7 +99,7 @@ struct InvoiceRowView: View {
 
             Spacer()
 
-            Text("$\(Int(invoice.totalAmount))")
+            Text("$\(Int(invoice.totalAmount).formatted())")
                 .font(.subheadline)
                 .fontWeight(.semibold)
 

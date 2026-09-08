@@ -37,25 +37,25 @@ struct InvoiceDetailView: View {
                 VStack(alignment: .leading, spacing: 12) {
                     ReadOnlyField(
                         label: NSLocalizedString("scan.total", comment: ""),
-                        value: "$\(Int(invoice.totalAmount))"
+                        value: "$\(Int(invoice.totalAmount).formatted())"
                     )
 
                     if let labor = invoice.laborCost {
                         ReadOnlyField(
                             label: NSLocalizedString("scan.labor", comment: ""),
-                            value: "$\(Int(labor))"
+                            value: "$\(Int(labor).formatted())"
                         )
                     }
 
                     if let materials = invoice.materialsCost {
                         ReadOnlyField(
                             label: NSLocalizedString("scan.materials", comment: ""),
-                            value: "$\(Int(materials))"
+                            value: "$\(Int(materials).formatted())"
                         )
                     }
 
                     if let rate = invoice.hourlyRate {
-                        ReadOnlyField(label: "Hourly Rate", value: "$\(Int(rate))/hr")
+                        ReadOnlyField(label: "Hourly Rate", value: "$\(Int(rate).formatted())/hr")
                     }
 
                     if let duration = invoice.projectDuration {
@@ -97,14 +97,14 @@ struct InvoiceDetailView: View {
                                         Text(item.category)
                                         if item.quantity > 1 {
                                             Text("·")
-                                            Text("qty \(item.quantity) @ $\(Int(item.unitPrice))/ea")
+                                            Text("qty \(item.quantity) @ $\(Int(item.unitPrice).formatted())/ea")
                                         }
                                     }
                                     .font(.caption)
                                     .foregroundColor(.secondary)
                                 }
                                 Spacer()
-                                Text("$\(Int(item.amount))")
+                                Text("$\(Int(item.amount).formatted())")
                                     .font(.subheadline)
                                     .fontWeight(.medium)
                             }

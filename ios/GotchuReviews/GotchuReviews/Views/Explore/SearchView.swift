@@ -26,6 +26,15 @@ struct SearchView: View {
                         )
                         .keyboardType(.numberPad)
                         .font(.subheadline)
+
+                        Button {
+                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                            Task { await viewModel.search() }
+                        } label: {
+                            Text(NSLocalizedString("search.title", comment: ""))
+                                .font(.subheadline)
+                                .fontWeight(.medium)
+                        }
                     }
                 }
                 .padding()

@@ -89,22 +89,6 @@ class APIClient {
         return response.user
     }
 
-    // MARK: - Dev Auth
-
-    #if DEBUG
-    struct DevAuthResponse: Codable {
-        let user: AppUser
-        let token: String
-    }
-
-    func devSignIn() async throws -> DevAuthResponse {
-        guard let request = makeRequest("/auth/dev", method: "POST") else {
-            throw APIError.invalidURL
-        }
-        return try await perform(request)
-    }
-    #endif
-
     // MARK: - Contractors
 
     struct ContractorListResponse: Codable {

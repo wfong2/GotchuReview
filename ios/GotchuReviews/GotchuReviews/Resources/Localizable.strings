@@ -35,6 +35,7 @@
 "search.title" = "Search";
 "search.placeholder" = "Contractor name or type";
 "search.results" = "results";
+"search.noResults" = "No contractors found in this area";
 
 /* Categories */
 "category.plumber" = "Plumber";

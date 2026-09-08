@@ -24,7 +24,7 @@ struct HistoryView: View {
                                     HStack {
                                         SummaryCard(
                                             title: NSLocalizedString("history.totalSpent", comment: ""),
-                                            value: "$\(Int(summary.totalSpent))"
+                                            value: "$\(Int(summary.totalSpent).formatted())"
                                         )
                                         SummaryCard(
                                             title: NSLocalizedString("history.contractors", comment: ""),
@@ -157,7 +157,7 @@ struct VendorRowView: View {
 
             Spacer()
 
-            Text("$\(Int(vendor.totalSpent))")
+            Text("$\(Int(vendor.totalSpent).formatted())")
                 .font(.subheadline)
                 .fontWeight(.semibold)
 

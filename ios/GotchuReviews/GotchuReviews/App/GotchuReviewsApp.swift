@@ -6,19 +6,14 @@ struct GotchuReviewsApp: App {
 
     var body: some Scene {
         WindowGroup {
-            if authViewModel.hasCompletedOnboarding {
-                MainTabView()
-                    .environmentObject(authViewModel)
-                    .task {
-                        #if DEBUG
-                        if !authViewModel.isSignedIn {
-                            authViewModel.devSignIn()
-                        }
-                        #endif
-                    }
-            } else {
-                OnboardingView()
-                    .environmentObject(authViewModel)
+            Group {
+                if authViewModel.hasCompletedOnboarding {
+                    MainTabView()
+                        .environmentObject(authViewModel)
+                } else {
+                    OnboardingView()
+                        .environmentObject(authViewModel)
+                }
             }
         }
     }

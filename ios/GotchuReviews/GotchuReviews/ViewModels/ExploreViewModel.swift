@@ -10,6 +10,7 @@ class ExploreViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var errorMessage: String?
     @Published var totalResults = 0
+    @Published var hasSearched = false
 
     func search() async {
         isLoading = true
@@ -23,8 +24,10 @@ class ExploreViewModel: ObservableObject {
             )
             contractors = response.contractors
             totalResults = response.total
+            hasSearched = true
         } catch {
             errorMessage = error.localizedDescription
+            hasSearched = true
         }
 
         isLoading = false

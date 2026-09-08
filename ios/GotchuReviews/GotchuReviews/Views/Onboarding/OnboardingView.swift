@@ -6,7 +6,7 @@ struct OnboardingView: View {
 
     var body: some View {
         TabView(selection: $currentPage) {
-            // Screen 1: Welcome
+            // Screen 1: Welcome + Sign In
             VStack(spacing: 24) {
                 Spacer()
 
@@ -43,36 +43,45 @@ struct OnboardingView: View {
 
                 Spacer()
 
+                // Google Sign-In button
                 Button {
-                    withAnimation { currentPage = 1 }
+                    authViewModel.signInWithGoogle()
                 } label: {
-                    Text(NSLocalizedString("onboarding.getStarted", comment: ""))
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color.blue)
-                        .cornerRadius(14)
+                    HStack(spacing: 12) {
+                        Image(systemName: "person.crop.circle.fill")
+                            .font(.title3)
+                        Text("Sign in with Google")
+                            .font(.headline)
+                    }
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(14)
                 }
                 .padding(.horizontal, 32)
+                .disabled(authViewModel.isLoading)
 
-                #if DEBUG
-                Button {
-                    authViewModel.devSignIn()
-                    authViewModel.completeOnboarding()
-                } label: {
-                    Text("Dev Sign In (localhost)")
-                        .font(.subheadline)
-                        .foregroundColor(.orange)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 10)
+                if authViewModel.isLoading {
+                    ProgressView()
                 }
-                .padding(.horizontal, 32)
-                #endif
+
+                if let error = authViewModel.errorMessage {
+                    Text(error)
+                        .font(.caption)
+                        .foregroundColor(.red)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 32)
+                }
 
                 Spacer().frame(height: 20)
             }
             .tag(0)
+            .onChange(of: authViewModel.isSignedIn) { _, signedIn in
+                if signedIn {
+                    withAnimation { currentPage = 1 }
+                }
+            }
 
             // Screen 2: Choose path
             VStack(spacing: 24) {
