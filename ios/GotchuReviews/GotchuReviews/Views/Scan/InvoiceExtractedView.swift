@@ -2,6 +2,7 @@ import SwiftUI
 
 struct InvoiceExtractedView: View {
     @ObservedObject var viewModel: ScanViewModel
+    @State private var showDuplicateAlert = false
 
     var body: some View {
         ScrollView {
@@ -78,7 +79,11 @@ struct InvoiceExtractedView: View {
 
                     // Confirm button
                     Button {
-                        viewModel.confirmExtraction()
+                        if viewModel.selectedContractorId != nil {
+                            showDuplicateAlert = true
+                        } else {
+                            viewModel.confirmExtraction()
+                        }
                     } label: {
                         Text(NSLocalizedString("scan.confirm", comment: ""))
                             .font(.headline)
@@ -91,6 +96,19 @@ struct InvoiceExtractedView: View {
                 }
             }
             .padding()
+        }
+        .alert(
+            NSLocalizedString("scan.duplicateCheck", comment: ""),
+            isPresented: $showDuplicateAlert
+        ) {
+            Button(NSLocalizedString("scan.discard", comment: ""), role: .destructive) {
+                viewModel.rescan()
+            }
+            Button(NSLocalizedString("scan.newInvoice", comment: "")) {
+                viewModel.confirmExtraction()
+            }
+        } message: {
+            Text(NSLocalizedString("scan.duplicateCheckMessage", comment: ""))
         }
     }
 }

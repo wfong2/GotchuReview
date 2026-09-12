@@ -109,8 +109,8 @@ struct HistoryView: View {
             .sheet(isPresented: $showSettings) {
                 SettingsView()
             }
-            .task {
-                await viewModel.load()
+            .onAppear {
+                Task { await viewModel.load() }
             }
         }
     }

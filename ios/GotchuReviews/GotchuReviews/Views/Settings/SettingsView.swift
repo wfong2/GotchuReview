@@ -23,8 +23,16 @@ struct SettingsView: View {
                                 .foregroundColor(.secondary)
                         }
                     } else {
-                        Text(NSLocalizedString("settings.notSignedIn", comment: ""))
-                            .foregroundColor(.secondary)
+                        HStack {
+                            Text(NSLocalizedString("settings.notSignedIn", comment: ""))
+                                .foregroundColor(.secondary)
+                            Spacer()
+                            Button("Sign In") {
+                                authViewModel.hasCompletedOnboarding = false
+                                UserDefaults.standard.set(false, forKey: "hasCompletedOnboarding")
+                                dismiss()
+                            }
+                        }
                     }
                 }
 

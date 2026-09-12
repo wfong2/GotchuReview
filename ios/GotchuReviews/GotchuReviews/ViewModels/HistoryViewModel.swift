@@ -13,6 +13,7 @@ class HistoryViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var errorMessage: String?
     @Published var sortOption: VendorSortOption = .recentFirst
+    private var hasLoadedOnce = false
 
     var sortedVendors: [VendorGroup] {
         switch sortOption {
@@ -27,7 +28,9 @@ class HistoryViewModel: ObservableObject {
     }
 
     func load() async {
-        isLoading = true
+        if !hasLoadedOnce {
+            isLoading = true
+        }
         errorMessage = nil
 
         do {
@@ -35,6 +38,7 @@ class HistoryViewModel: ObservableObject {
             vendors = response.vendors
             summary = response.summary
             creditBalance = try await APIClient.shared.getCreditBalance()
+            hasLoadedOnce = true
         } catch {
             NSLog("[HistoryVM] Load error: %@", "\(error)")
             errorMessage = error.localizedDescription

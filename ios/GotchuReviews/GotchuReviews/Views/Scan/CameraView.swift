@@ -100,7 +100,12 @@ struct CameraView: View {
             DocumentPickerView { data, mimeType, previewImage in
                 viewModel.capturedImage = previewImage
                 Task {
-                    await viewModel.extractInvoice(imageData: data, mimeType: mimeType)
+                    if mimeType == "application/pdf", let preview = previewImage,
+                       let jpegData = preview.jpegData(compressionQuality: 0.8) {
+                        await viewModel.extractInvoice(imageData: jpegData)
+                    } else {
+                        await viewModel.extractInvoice(imageData: data, mimeType: mimeType)
+                    }
                 }
             }
         }
@@ -153,6 +158,10 @@ struct DocumentPickerView: UIViewControllerRepresentable {
         let picker = UIDocumentPickerViewController(forOpeningContentTypes: types)
         picker.delegate = context.coordinator
         picker.allowsMultipleSelection = false
+        // Open directly to iCloud Drive if available, otherwise fall back to Documents
+        if let iCloudURL = FileManager.default.url(forUbiquityContainerIdentifier: nil)?.appendingPathComponent("Documents") {
+            picker.directoryURL = iCloudURL
+        }
         return picker
     }
 

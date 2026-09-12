@@ -23,11 +23,8 @@ enum APIError: Error, LocalizedError {
 class APIClient {
     static let shared = APIClient()
 
-    #if DEBUG
-    private let baseURL = "http://192.168.1.243:3000/api/v1"
-    #else
-    private let baseURL = "https://api.gotchureviews.com/api/v1"
-    #endif
+    // Local dev: "http://192.168.1.243:3000/api/v1"
+    private let baseURL = "https://xduzpwxmsp.us-east-1.awsapprunner.com/api/v1"
 
     var authToken: String?
 

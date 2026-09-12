@@ -103,6 +103,10 @@
 "scan.rescan" = "Doesn't look right? Re-scan";
 "scan.confirm" = "Confirm";
 "scan.duplicateInvoice" = "This invoice has already been scanned.";
+"scan.duplicateCheck" = "Same invoice?";
+"scan.duplicateCheckMessage" = "You've already reviewed this contractor. Is this the same invoice or a new one?";
+"scan.discard" = "Same — Discard";
+"scan.newInvoice" = "New Invoice — Review";
 
 /* Submitted */
 "submitted.title" = "Review Submitted!";
