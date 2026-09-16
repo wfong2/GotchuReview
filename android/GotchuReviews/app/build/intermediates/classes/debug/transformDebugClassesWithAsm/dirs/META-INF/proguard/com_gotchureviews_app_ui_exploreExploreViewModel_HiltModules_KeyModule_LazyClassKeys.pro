@@ -1,0 +1,6 @@
+-keep,allowobfuscation,allowshrinking class com.gotchureviews.app.ui.scan.ScanViewModel
+-keep,allowobfuscation,allowshrinking class com.gotchureviews.app.ui.scan.ScanViewModel
+-keep,allowobfuscation,allowshrinking class com.gotchureviews.app.ui.explore.ContractorDetailViewModel
+-keep,allowobfuscation,allowshrinking class com.gotchureviews.app.ui.explore.ContractorDetailViewModel
+-keep,allowobfuscation,allowshrinking class com.gotchureviews.app.ui.explore.ExploreViewModel
+-keep,allowobfuscation,allowshrinking class com.gotchureviews.app.ui.explore.ExploreViewModel

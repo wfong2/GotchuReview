@@ -1,0 +1,1 @@
+-keep,allowobfuscation,allowshrinking class com.gotchureviews.app.ui.scan.ScanViewModel

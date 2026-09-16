@@ -1,0 +1,582 @@
+-- Merging decision tree log ---
+provider#androidx.core.content.FileProvider
+INJECTED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml:29:9-37:20
+	android:grantUriPermissions
+		ADDED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml:33:13-47
+	android:authorities
+		INJECTED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml
+		ADDED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml:31:13-64
+	android:exported
+		ADDED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml:32:13-37
+	android:name
+		ADDED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml:30:13-62
+manifest
+ADDED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml:2:1-39:12
+MERGED from [androidx.hilt:hilt-navigation-compose:1.2.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/fffaa7ddb1d290fd0a0eff3d7996099f/transformed/hilt-navigation-compose-1.2.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.hilt:hilt-navigation:1.2.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f3dbb2f3a88de69802fa01cebd6a18c6/transformed/hilt-navigation-1.2.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-common:2.8.5] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/1eae2484f68e0b6a85bf7f42d09d756b/transformed/navigation-common-2.8.5/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-runtime:2.8.5] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/8a744ac2ed4c50ed15b07ba0aa471916/transformed/navigation-runtime-2.8.5/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-common-ktx:2.8.5] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/5f755b6a434997caa90cf0fb0b76886b/transformed/navigation-common-ktx-2.8.5/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.8.5] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/81023db0c6cda0f364d72d47889eb876/transformed/navigation-runtime-ktx-2.8.5/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-compose:2.8.5] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/a5517fb10da4a0bba49bb6732ea716ef/transformed/navigation-compose-2.8.5/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.dagger:hilt-android:2.53.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/cc7e91e312f2827252bf0d9d186429ae/transformed/hilt-android-2.53.1/AndroidManifest.xml:16:1-19:12
+MERGED from [androidx.credentials:credentials-play-services-auth:1.5.0-alpha05] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f8ecbd7c8a7da6d9b6d7c35f6dc66a69/transformed/credentials-play-services-auth-1.5.0-alpha05/AndroidManifest.xml:17:1-52:12
+MERGED from [com.google.android.libraries.identity.googleid:googleid:1.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/25180d0c083ff0cc9c898dcb7e0d1cdf/transformed/googleid-1.1.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.credentials:credentials:1.5.0-alpha05] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/9dfb49159e5032d9e4ac3d587e8093d1/transformed/credentials-1.5.0-alpha05/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.biometric:biometric-ktx:1.4.0-alpha02] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/62ce10abaa4908af3f6fbea7f59401db/transformed/biometric-ktx-1.4.0-alpha02/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.biometric:biometric:1.4.0-alpha02] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/a75e68717614e4a3ee403cbab47157cb/transformed/biometric-1.4.0-alpha02/AndroidManifest.xml:17:1-27:12
+MERGED from [com.google.android.gms:play-services-auth:21.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/155a1a33cbe09afd63d517585aecc931/transformed/play-services-auth-21.1.1/AndroidManifest.xml:17:1-40:12
+MERGED from [com.google.android.gms:play-services-auth-blockstore:16.4.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/6c0f4d9f9c7df97edc2b0b02c397a3de/transformed/play-services-auth-blockstore-16.4.0/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-fido:21.0.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f7237f2a0b6854ca95ad6cba29ef949c/transformed/play-services-fido-21.0.0/AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.android.gms:play-services-identity-credentials:16.0.0-alpha02] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/188bda427617a01844e604fb7f11afb7/transformed/play-services-identity-credentials-16.0.0-alpha02/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.2] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c2f4bc4503344a138e135ca35ab5f52a/transformed/play-services-auth-api-phone-18.0.2/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-auth-base:18.0.10] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/cd6db85e267f34eb3580b76ca2a9ea39/transformed/play-services-auth-base-18.0.10/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-base:18.5.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/31bf133680a4c0faaca01d1bdd4762c5/transformed/play-services-base-18.5.0/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/cdf72b7206568cd9762b8c44bee236f4/transformed/play-services-tasks-18.2.0/AndroidManifest.xml:2:1-5:12
+MERGED from [com.google.android.gms:play-services-basement:18.4.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/9a48a3f56e8c05e48ec74d0287e44e47/transformed/play-services-basement-18.4.0/AndroidManifest.xml:2:1-9:12
+MERGED from [io.coil-kt.coil3:coil-compose-android:3.0.4] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c382856db1e725f00d647c60fc9c88a9/transformed/coil-compose-release/AndroidManifest.xml:2:1-7:12
+MERGED from [io.coil-kt.coil3:coil-android:3.0.4] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/b7925923cdd99206a92f1761cda66e42/transformed/coil-release/AndroidManifest.xml:2:1-7:12
+MERGED from [io.coil-kt.coil3:coil-compose-core-android:3.0.4] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/61629fe3f688195eed0182fc47e0630d/transformed/coil-compose-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [io.coil-kt.coil3:coil-network-core-android:3.0.4] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/be2073968ab95b1aa7e7e45f91713da9/transformed/coil-network-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [io.coil-kt.coil3:coil-core-android:3.0.4] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/2a0aea6ed23d417607c1e8e010267d00/transformed/coil-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.appcompat:appcompat-resources:1.7.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/e57f3145a7706cc859433f3b96173487/transformed/appcompat-resources-1.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.appcompat:appcompat:1.7.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/1602d796f80d90ee9f10f2d09ac683dd/transformed/appcompat-1.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.fragment:fragment:1.5.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/232b6ec186514c03031dbb894ebbe1e4/transformed/fragment-1.5.7/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.compose.material3:material3-android:1.3.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/e963ff5bafcb8e0049596ccd654c9865/transformed/material3-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.material:material-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/9c31df004f881cea897b46376a3f2aa5/transformed/material-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-core-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/df3104cabfad029585f15851624432d7/transformed/animation-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-ripple-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/4692fe0f5abeac3146a8b0e9ad646b6a/transformed/material-ripple-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c2d9db6d184ed8c832d507a04b415ef9/transformed/animation-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/448476d61cdc0c171eca5057858d27ff/transformed/foundation-layout-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/b0ce174fb70aefcf8fb03ad8e2b41987/transformed/foundation-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/03881cce212ced7c611b6b5d8e0e68f4/transformed/ui-tooling-data-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-unit-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/63a2f13713e7604cb5e9547fca47b529/transformed/ui-unit-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-geometry-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f499b5ffefd5381ab34555eef18221dc/transformed/ui-geometry-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-util-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/881e282f355cada835d2cdbc53f24a33/transformed/ui-util-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-text-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f89e68a50fa69f62cbc0e939343297ec/transformed/ui-text-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/4143562427d9b7bbbeef9b636a984b75/transformed/ui-tooling-preview-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.ui:ui-graphics-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/638788e8ebe5bed8eec538546e522207/transformed/ui-graphics-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/acaa535f5552b34498e07e50d639166d/transformed/ui-tooling-release/AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f0f2fe248b3bd60aa5e097a3a008c5f4/transformed/savedstate-ktx-1.2.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.2.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/434005151c5f295525d69bfb6b282698/transformed/savedstate-1.2.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/7ef93d5e79802e2f8ba5254a45cbeb5b/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.core:core-ktx:1.15.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/cd75c175233a47eae5e7b13a026ea236/transformed/core-ktx-1.15.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2-views-helper:1.3.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/6fcece956486e69520604490d13d8413/transformed/emoji2-views-helper-1.3.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2:1.3.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/db9188d55796f74d171843fdc88f4e92/transformed/emoji2-1.3.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.autofill:autofill:1.0.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/a881530c26fc3d994a33383a34a5cad6/transformed/autofill-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.graphics:graphics-path:1.0.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/e20354df342379546f2fe899a3594e9d/transformed/graphics-path-1.0.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.loader:loader:1.0.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/7b65b89044ffca210382d646d966b3ad/transformed/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/9f9675f4cc0ca2c811a0003c1111c0f1/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/036b12951b63969b016d5caa3bd289ca/transformed/drawerlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/01a59d3c5539c40e38662780bc849ee1/transformed/customview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/231822ceb25ea9ed37c04374566a2a86/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/bb059aa08df43cfbad2bcc3ae9efef90/transformed/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core:1.15.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/eda89d57d81c129374dcb4cb131b93fa/transformed/core-1.15.0/AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/1e3afa32a347d3ff9fb7a2f649ff22fd/transformed/lifecycle-livedata-core-ktx-2.8.7/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/aac77efe9a8012566e947b5859d6b57c/transformed/lifecycle-livedata-2.8.7/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4ef135420f71a471d6122764198a303/transformed/lifecycle-process-2.8.7/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/d788efd754e574567886b252de52bda6/transformed/lifecycle-runtime-ktx-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/eb75ee7769c6c8c58d1989551dcf9d9e/transformed/lifecycle-runtime-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/7e55d696226e59d18e55acbc699fc921/transformed/lifecycle-viewmodel-2.8.7/AndroidManifest.xml:2:1-5:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/0fa01d9591b15eadf244f799aa96a55c/transformed/lifecycle-viewmodel-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/1c7f74d0a88351d9d96ac26d63aaecd1/transformed/lifecycle-viewmodel-ktx-2.8.7/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/842f36466c3afe7b05f8289e27194626/transformed/lifecycle-livedata-core-2.8.7/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/0bc81016894490e64ff96df64564d1ed/transformed/lifecycle-viewmodel-savedstate-2.8.7/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/7a25812926c6fb7753eb5771aad7829f/transformed/lifecycle-runtime-compose-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/77280005a86e1088c9f43e6fcd556653/transformed/lifecycle-viewmodel-compose-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-icons-extended-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f19b05c45a5923d901cabc5820572774/transformed/material-icons-extended-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/d1809273631cd7d1872ef46f136cc1f8/transformed/material-icons-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.accompanist:accompanist-drawablepainter:0.36.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/a620b6d5c8637ae5f577628c01ac3935/transformed/accompanist-drawablepainter-0.36.0/AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.compose.ui:ui-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/83c98b5f9a1b55284e818c7458933751/transformed/ui-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity-ktx:1.9.3] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/1d89457a88bd8ab7b08f6d1c9df364c8/transformed/activity-ktx-1.9.3/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity:1.9.3] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/cef420a959bdfa4ec97085b8a55f9903/transformed/activity-1.9.3/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity-compose:1.9.3] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/25a6ee15b54814ebfd294c9acabec880/transformed/activity-compose-1.9.3/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.datastore:datastore-core-android:1.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c5e3ffb5e5f46296425b83f11b49297b/transformed/datastore-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.datastore:datastore-android:1.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c6c261da637e4fc27ed815083cee4a11/transformed/datastore-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.datastore:datastore-preferences-android:1.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/fbd0be3bd492c819f5bbd92579bb96d0/transformed/datastore-preferences-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.runtime:runtime-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/b4ac152ab4b3e850f1889fc786a24af5/transformed/runtime-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/35178e8d63343a94137b183a2fe4bc61/transformed/runtime-saveable-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/8ebb233c70b21402c2e482e0e494ff9d/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/6b2c4dcf60fd1512dcaf7bb49af70960/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4cdb9a1e6617f3d4a3adb0a631551a1/transformed/profileinstaller-1.4.1/AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/3a7db1d02eed3c694eb9d51941090b2b/transformed/startup-runtime-1.1.1/AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.2.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/6b3d805cde21f36a5fe3e9df714ac630/transformed/tracing-1.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/6c32acebd1243de2028f4ad54a024d41/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/83e3ab28ecd5167c4f8957755158ed66/transformed/core-runtime-2.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.exifinterface:exifinterface:1.3.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/59b23a5192bf1533530e1423ffd96c97/transformed/exifinterface-1.3.7/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/79e44e97d6042839dce262e318abdfc0/transformed/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.dagger:dagger-lint-aar:2.53.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/1f748e30fa58bc434d86f69331561fa4/transformed/dagger-lint-aar-2.53.1/AndroidManifest.xml:16:1-19:12
+	package
+		INJECTED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml:4:5-67
+	android:name
+		ADDED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml:4:22-64
+uses-permission#android.permission.CAMERA
+ADDED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml:5:5-65
+	android:name
+		ADDED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml:5:22-62
+uses-feature#android.hardware.camera
+ADDED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml:7:5-9:36
+	android:required
+		ADDED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml:9:9-33
+	android:name
+		ADDED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml:8:9-47
+application
+ADDED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml:11:5-38:19
+INJECTED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml:11:5-38:19
+MERGED from [androidx.credentials:credentials-play-services-auth:1.5.0-alpha05] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f8ecbd7c8a7da6d9b6d7c35f6dc66a69/transformed/credentials-play-services-auth-1.5.0-alpha05/AndroidManifest.xml:23:5-50:19
+MERGED from [androidx.credentials:credentials-play-services-auth:1.5.0-alpha05] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f8ecbd7c8a7da6d9b6d7c35f6dc66a69/transformed/credentials-play-services-auth-1.5.0-alpha05/AndroidManifest.xml:23:5-50:19
+MERGED from [com.google.android.gms:play-services-auth:21.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/155a1a33cbe09afd63d517585aecc931/transformed/play-services-auth-21.1.1/AndroidManifest.xml:22:5-38:19
+MERGED from [com.google.android.gms:play-services-auth:21.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/155a1a33cbe09afd63d517585aecc931/transformed/play-services-auth-21.1.1/AndroidManifest.xml:22:5-38:19
+MERGED from [com.google.android.gms:play-services-auth-blockstore:16.4.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/6c0f4d9f9c7df97edc2b0b02c397a3de/transformed/play-services-auth-blockstore-16.4.0/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-auth-blockstore:16.4.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/6c0f4d9f9c7df97edc2b0b02c397a3de/transformed/play-services-auth-blockstore-16.4.0/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-fido:21.0.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f7237f2a0b6854ca95ad6cba29ef949c/transformed/play-services-fido-21.0.0/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.android.gms:play-services-fido:21.0.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f7237f2a0b6854ca95ad6cba29ef949c/transformed/play-services-fido-21.0.0/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.android.gms:play-services-base:18.5.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/31bf133680a4c0faaca01d1bdd4762c5/transformed/play-services-base-18.5.0/AndroidManifest.xml:4:5-6:19
+MERGED from [com.google.android.gms:play-services-base:18.5.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/31bf133680a4c0faaca01d1bdd4762c5/transformed/play-services-base-18.5.0/AndroidManifest.xml:4:5-6:19
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/cdf72b7206568cd9762b8c44bee236f4/transformed/play-services-tasks-18.2.0/AndroidManifest.xml:4:5-20
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/cdf72b7206568cd9762b8c44bee236f4/transformed/play-services-tasks-18.2.0/AndroidManifest.xml:4:5-20
+MERGED from [com.google.android.gms:play-services-basement:18.4.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/9a48a3f56e8c05e48ec74d0287e44e47/transformed/play-services-basement-18.4.0/AndroidManifest.xml:5:5-7:19
+MERGED from [com.google.android.gms:play-services-basement:18.4.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/9a48a3f56e8c05e48ec74d0287e44e47/transformed/play-services-basement-18.4.0/AndroidManifest.xml:5:5-7:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/acaa535f5552b34498e07e50d639166d/transformed/ui-tooling-release/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/acaa535f5552b34498e07e50d639166d/transformed/ui-tooling-release/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.emoji2:emoji2:1.3.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/db9188d55796f74d171843fdc88f4e92/transformed/emoji2-1.3.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.3.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/db9188d55796f74d171843fdc88f4e92/transformed/emoji2-1.3.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.core:core:1.15.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/eda89d57d81c129374dcb4cb131b93fa/transformed/core-1.15.0/AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.15.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/eda89d57d81c129374dcb4cb131b93fa/transformed/core-1.15.0/AndroidManifest.xml:28:5-89
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4ef135420f71a471d6122764198a303/transformed/lifecycle-process-2.8.7/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4ef135420f71a471d6122764198a303/transformed/lifecycle-process-2.8.7/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/6b2c4dcf60fd1512dcaf7bb49af70960/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/6b2c4dcf60fd1512dcaf7bb49af70960/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4cdb9a1e6617f3d4a3adb0a631551a1/transformed/profileinstaller-1.4.1/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4cdb9a1e6617f3d4a3adb0a631551a1/transformed/profileinstaller-1.4.1/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/3a7db1d02eed3c694eb9d51941090b2b/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/3a7db1d02eed3c694eb9d51941090b2b/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+	android:extractNativeLibs
+		INJECTED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.15.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/eda89d57d81c129374dcb4cb131b93fa/transformed/core-1.15.0/AndroidManifest.xml:28:18-86
+	android:supportsRtl
+		ADDED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml:16:9-35
+	android:label
+		ADDED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml:15:9-41
+	android:icon
+		ADDED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml:14:9-43
+	android:allowBackup
+		ADDED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml:13:9-35
+	android:theme
+		ADDED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml:17:9-51
+	android:name
+		ADDED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml:12:9-41
+activity#com.gotchureviews.app.MainActivity
+ADDED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml:19:9-27:20
+	android:exported
+		ADDED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml:21:13-36
+	android:theme
+		ADDED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml:22:13-55
+	android:name
+		ADDED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml:20:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml:23:13-26:29
+action#android.intent.action.MAIN
+ADDED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml:24:17-69
+	android:name
+		ADDED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml:24:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml:25:17-77
+	android:name
+		ADDED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml:25:27-74
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml:34:13-36:54
+	android:resource
+		ADDED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml:36:17-51
+	android:name
+		ADDED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml:35:17-67
+uses-sdk
+INJECTED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml
+INJECTED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml
+MERGED from [androidx.hilt:hilt-navigation-compose:1.2.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/fffaa7ddb1d290fd0a0eff3d7996099f/transformed/hilt-navigation-compose-1.2.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.hilt:hilt-navigation-compose:1.2.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/fffaa7ddb1d290fd0a0eff3d7996099f/transformed/hilt-navigation-compose-1.2.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.hilt:hilt-navigation:1.2.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f3dbb2f3a88de69802fa01cebd6a18c6/transformed/hilt-navigation-1.2.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.hilt:hilt-navigation:1.2.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f3dbb2f3a88de69802fa01cebd6a18c6/transformed/hilt-navigation-1.2.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-common:2.8.5] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/1eae2484f68e0b6a85bf7f42d09d756b/transformed/navigation-common-2.8.5/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common:2.8.5] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/1eae2484f68e0b6a85bf7f42d09d756b/transformed/navigation-common-2.8.5/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.8.5] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/8a744ac2ed4c50ed15b07ba0aa471916/transformed/navigation-runtime-2.8.5/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.8.5] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/8a744ac2ed4c50ed15b07ba0aa471916/transformed/navigation-runtime-2.8.5/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common-ktx:2.8.5] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/5f755b6a434997caa90cf0fb0b76886b/transformed/navigation-common-ktx-2.8.5/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-common-ktx:2.8.5] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/5f755b6a434997caa90cf0fb0b76886b/transformed/navigation-common-ktx-2.8.5/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.8.5] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/81023db0c6cda0f364d72d47889eb876/transformed/navigation-runtime-ktx-2.8.5/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.8.5] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/81023db0c6cda0f364d72d47889eb876/transformed/navigation-runtime-ktx-2.8.5/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-compose:2.8.5] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/a5517fb10da4a0bba49bb6732ea716ef/transformed/navigation-compose-2.8.5/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-compose:2.8.5] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/a5517fb10da4a0bba49bb6732ea716ef/transformed/navigation-compose-2.8.5/AndroidManifest.xml:5:5-44
+MERGED from [com.google.dagger:hilt-android:2.53.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/cc7e91e312f2827252bf0d9d186429ae/transformed/hilt-android-2.53.1/AndroidManifest.xml:18:3-42
+MERGED from [com.google.dagger:hilt-android:2.53.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/cc7e91e312f2827252bf0d9d186429ae/transformed/hilt-android-2.53.1/AndroidManifest.xml:18:3-42
+MERGED from [androidx.credentials:credentials-play-services-auth:1.5.0-alpha05] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f8ecbd7c8a7da6d9b6d7c35f6dc66a69/transformed/credentials-play-services-auth-1.5.0-alpha05/AndroidManifest.xml:21:5-44
+MERGED from [androidx.credentials:credentials-play-services-auth:1.5.0-alpha05] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f8ecbd7c8a7da6d9b6d7c35f6dc66a69/transformed/credentials-play-services-auth-1.5.0-alpha05/AndroidManifest.xml:21:5-44
+MERGED from [com.google.android.libraries.identity.googleid:googleid:1.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/25180d0c083ff0cc9c898dcb7e0d1cdf/transformed/googleid-1.1.1/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.libraries.identity.googleid:googleid:1.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/25180d0c083ff0cc9c898dcb7e0d1cdf/transformed/googleid-1.1.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.credentials:credentials:1.5.0-alpha05] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/9dfb49159e5032d9e4ac3d587e8093d1/transformed/credentials-1.5.0-alpha05/AndroidManifest.xml:5:5-44
+MERGED from [androidx.credentials:credentials:1.5.0-alpha05] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/9dfb49159e5032d9e4ac3d587e8093d1/transformed/credentials-1.5.0-alpha05/AndroidManifest.xml:5:5-44
+MERGED from [androidx.biometric:biometric-ktx:1.4.0-alpha02] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/62ce10abaa4908af3f6fbea7f59401db/transformed/biometric-ktx-1.4.0-alpha02/AndroidManifest.xml:5:5-44
+MERGED from [androidx.biometric:biometric-ktx:1.4.0-alpha02] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/62ce10abaa4908af3f6fbea7f59401db/transformed/biometric-ktx-1.4.0-alpha02/AndroidManifest.xml:5:5-44
+MERGED from [androidx.biometric:biometric:1.4.0-alpha02] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/a75e68717614e4a3ee403cbab47157cb/transformed/biometric-1.4.0-alpha02/AndroidManifest.xml:20:5-44
+MERGED from [androidx.biometric:biometric:1.4.0-alpha02] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/a75e68717614e4a3ee403cbab47157cb/transformed/biometric-1.4.0-alpha02/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth:21.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/155a1a33cbe09afd63d517585aecc931/transformed/play-services-auth-21.1.1/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth:21.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/155a1a33cbe09afd63d517585aecc931/transformed/play-services-auth-21.1.1/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth-blockstore:16.4.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/6c0f4d9f9c7df97edc2b0b02c397a3de/transformed/play-services-auth-blockstore-16.4.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-blockstore:16.4.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/6c0f4d9f9c7df97edc2b0b02c397a3de/transformed/play-services-auth-blockstore-16.4.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-fido:21.0.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f7237f2a0b6854ca95ad6cba29ef949c/transformed/play-services-fido-21.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-fido:21.0.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f7237f2a0b6854ca95ad6cba29ef949c/transformed/play-services-fido-21.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-identity-credentials:16.0.0-alpha02] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/188bda427617a01844e604fb7f11afb7/transformed/play-services-identity-credentials-16.0.0-alpha02/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-identity-credentials:16.0.0-alpha02] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/188bda427617a01844e604fb7f11afb7/transformed/play-services-identity-credentials-16.0.0-alpha02/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.2] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c2f4bc4503344a138e135ca35ab5f52a/transformed/play-services-auth-api-phone-18.0.2/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.2] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c2f4bc4503344a138e135ca35ab5f52a/transformed/play-services-auth-api-phone-18.0.2/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-base:18.0.10] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/cd6db85e267f34eb3580b76ca2a9ea39/transformed/play-services-auth-base-18.0.10/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-base:18.0.10] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/cd6db85e267f34eb3580b76ca2a9ea39/transformed/play-services-auth-base-18.0.10/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-base:18.5.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/31bf133680a4c0faaca01d1bdd4762c5/transformed/play-services-base-18.5.0/AndroidManifest.xml:3:5-44
+MERGED from [com.google.android.gms:play-services-base:18.5.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/31bf133680a4c0faaca01d1bdd4762c5/transformed/play-services-base-18.5.0/AndroidManifest.xml:3:5-44
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/cdf72b7206568cd9762b8c44bee236f4/transformed/play-services-tasks-18.2.0/AndroidManifest.xml:3:5-44
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/cdf72b7206568cd9762b8c44bee236f4/transformed/play-services-tasks-18.2.0/AndroidManifest.xml:3:5-44
+MERGED from [com.google.android.gms:play-services-basement:18.4.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/9a48a3f56e8c05e48ec74d0287e44e47/transformed/play-services-basement-18.4.0/AndroidManifest.xml:3:5-44
+MERGED from [com.google.android.gms:play-services-basement:18.4.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/9a48a3f56e8c05e48ec74d0287e44e47/transformed/play-services-basement-18.4.0/AndroidManifest.xml:3:5-44
+MERGED from [io.coil-kt.coil3:coil-compose-android:3.0.4] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c382856db1e725f00d647c60fc9c88a9/transformed/coil-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt.coil3:coil-compose-android:3.0.4] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c382856db1e725f00d647c60fc9c88a9/transformed/coil-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt.coil3:coil-android:3.0.4] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/b7925923cdd99206a92f1761cda66e42/transformed/coil-release/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt.coil3:coil-android:3.0.4] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/b7925923cdd99206a92f1761cda66e42/transformed/coil-release/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt.coil3:coil-compose-core-android:3.0.4] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/61629fe3f688195eed0182fc47e0630d/transformed/coil-compose-core-release/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt.coil3:coil-compose-core-android:3.0.4] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/61629fe3f688195eed0182fc47e0630d/transformed/coil-compose-core-release/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt.coil3:coil-network-core-android:3.0.4] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/be2073968ab95b1aa7e7e45f91713da9/transformed/coil-network-core-release/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt.coil3:coil-network-core-android:3.0.4] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/be2073968ab95b1aa7e7e45f91713da9/transformed/coil-network-core-release/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt.coil3:coil-core-android:3.0.4] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/2a0aea6ed23d417607c1e8e010267d00/transformed/coil-core-release/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt.coil3:coil-core-android:3.0.4] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/2a0aea6ed23d417607c1e8e010267d00/transformed/coil-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.7.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/e57f3145a7706cc859433f3b96173487/transformed/appcompat-resources-1.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.7.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/e57f3145a7706cc859433f3b96173487/transformed/appcompat-resources-1.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat:1.7.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/1602d796f80d90ee9f10f2d09ac683dd/transformed/appcompat-1.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat:1.7.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/1602d796f80d90ee9f10f2d09ac683dd/transformed/appcompat-1.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.fragment:fragment:1.5.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/232b6ec186514c03031dbb894ebbe1e4/transformed/fragment-1.5.7/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.5.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/232b6ec186514c03031dbb894ebbe1e4/transformed/fragment-1.5.7/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.compose.material3:material3-android:1.3.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/e963ff5bafcb8e0049596ccd654c9865/transformed/material3-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material3:material3-android:1.3.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/e963ff5bafcb8e0049596ccd654c9865/transformed/material3-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material:material-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/9c31df004f881cea897b46376a3f2aa5/transformed/material-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/9c31df004f881cea897b46376a3f2aa5/transformed/material-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/df3104cabfad029585f15851624432d7/transformed/animation-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/df3104cabfad029585f15851624432d7/transformed/animation-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/4692fe0f5abeac3146a8b0e9ad646b6a/transformed/material-ripple-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/4692fe0f5abeac3146a8b0e9ad646b6a/transformed/material-ripple-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c2d9db6d184ed8c832d507a04b415ef9/transformed/animation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c2d9db6d184ed8c832d507a04b415ef9/transformed/animation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/448476d61cdc0c171eca5057858d27ff/transformed/foundation-layout-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/448476d61cdc0c171eca5057858d27ff/transformed/foundation-layout-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/b0ce174fb70aefcf8fb03ad8e2b41987/transformed/foundation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/b0ce174fb70aefcf8fb03ad8e2b41987/transformed/foundation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/03881cce212ced7c611b6b5d8e0e68f4/transformed/ui-tooling-data-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/03881cce212ced7c611b6b5d8e0e68f4/transformed/ui-tooling-data-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/63a2f13713e7604cb5e9547fca47b529/transformed/ui-unit-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/63a2f13713e7604cb5e9547fca47b529/transformed/ui-unit-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f499b5ffefd5381ab34555eef18221dc/transformed/ui-geometry-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f499b5ffefd5381ab34555eef18221dc/transformed/ui-geometry-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/881e282f355cada835d2cdbc53f24a33/transformed/ui-util-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/881e282f355cada835d2cdbc53f24a33/transformed/ui-util-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f89e68a50fa69f62cbc0e939343297ec/transformed/ui-text-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f89e68a50fa69f62cbc0e939343297ec/transformed/ui-text-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/4143562427d9b7bbbeef9b636a984b75/transformed/ui-tooling-preview-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/4143562427d9b7bbbeef9b636a984b75/transformed/ui-tooling-preview-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/638788e8ebe5bed8eec538546e522207/transformed/ui-graphics-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/638788e8ebe5bed8eec538546e522207/transformed/ui-graphics-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/acaa535f5552b34498e07e50d639166d/transformed/ui-tooling-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/acaa535f5552b34498e07e50d639166d/transformed/ui-tooling-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f0f2fe248b3bd60aa5e097a3a008c5f4/transformed/savedstate-ktx-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f0f2fe248b3bd60aa5e097a3a008c5f4/transformed/savedstate-ktx-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/434005151c5f295525d69bfb6b282698/transformed/savedstate-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/434005151c5f295525d69bfb6b282698/transformed/savedstate-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/7ef93d5e79802e2f8ba5254a45cbeb5b/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/7ef93d5e79802e2f8ba5254a45cbeb5b/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.core:core-ktx:1.15.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/cd75c175233a47eae5e7b13a026ea236/transformed/core-ktx-1.15.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.15.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/cd75c175233a47eae5e7b13a026ea236/transformed/core-ktx-1.15.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.3.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/6fcece956486e69520604490d13d8413/transformed/emoji2-views-helper-1.3.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.3.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/6fcece956486e69520604490d13d8413/transformed/emoji2-views-helper-1.3.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2:1.3.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/db9188d55796f74d171843fdc88f4e92/transformed/emoji2-1.3.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.3.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/db9188d55796f74d171843fdc88f4e92/transformed/emoji2-1.3.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.autofill:autofill:1.0.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/a881530c26fc3d994a33383a34a5cad6/transformed/autofill-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.autofill:autofill:1.0.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/a881530c26fc3d994a33383a34a5cad6/transformed/autofill-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.graphics:graphics-path:1.0.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/e20354df342379546f2fe899a3594e9d/transformed/graphics-path-1.0.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.graphics:graphics-path:1.0.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/e20354df342379546f2fe899a3594e9d/transformed/graphics-path-1.0.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/7b65b89044ffca210382d646d966b3ad/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/7b65b89044ffca210382d646d966b3ad/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/9f9675f4cc0ca2c811a0003c1111c0f1/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/9f9675f4cc0ca2c811a0003c1111c0f1/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/036b12951b63969b016d5caa3bd289ca/transformed/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/036b12951b63969b016d5caa3bd289ca/transformed/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/01a59d3c5539c40e38662780bc849ee1/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/01a59d3c5539c40e38662780bc849ee1/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/231822ceb25ea9ed37c04374566a2a86/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/231822ceb25ea9ed37c04374566a2a86/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/bb059aa08df43cfbad2bcc3ae9efef90/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/bb059aa08df43cfbad2bcc3ae9efef90/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.15.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/eda89d57d81c129374dcb4cb131b93fa/transformed/core-1.15.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.15.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/eda89d57d81c129374dcb4cb131b93fa/transformed/core-1.15.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/1e3afa32a347d3ff9fb7a2f649ff22fd/transformed/lifecycle-livedata-core-ktx-2.8.7/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/1e3afa32a347d3ff9fb7a2f649ff22fd/transformed/lifecycle-livedata-core-ktx-2.8.7/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/aac77efe9a8012566e947b5859d6b57c/transformed/lifecycle-livedata-2.8.7/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/aac77efe9a8012566e947b5859d6b57c/transformed/lifecycle-livedata-2.8.7/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4ef135420f71a471d6122764198a303/transformed/lifecycle-process-2.8.7/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4ef135420f71a471d6122764198a303/transformed/lifecycle-process-2.8.7/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/d788efd754e574567886b252de52bda6/transformed/lifecycle-runtime-ktx-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/d788efd754e574567886b252de52bda6/transformed/lifecycle-runtime-ktx-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/eb75ee7769c6c8c58d1989551dcf9d9e/transformed/lifecycle-runtime-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/eb75ee7769c6c8c58d1989551dcf9d9e/transformed/lifecycle-runtime-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/7e55d696226e59d18e55acbc699fc921/transformed/lifecycle-viewmodel-2.8.7/AndroidManifest.xml:4:5-43
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/7e55d696226e59d18e55acbc699fc921/transformed/lifecycle-viewmodel-2.8.7/AndroidManifest.xml:4:5-43
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/0fa01d9591b15eadf244f799aa96a55c/transformed/lifecycle-viewmodel-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/0fa01d9591b15eadf244f799aa96a55c/transformed/lifecycle-viewmodel-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/1c7f74d0a88351d9d96ac26d63aaecd1/transformed/lifecycle-viewmodel-ktx-2.8.7/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/1c7f74d0a88351d9d96ac26d63aaecd1/transformed/lifecycle-viewmodel-ktx-2.8.7/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/842f36466c3afe7b05f8289e27194626/transformed/lifecycle-livedata-core-2.8.7/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/842f36466c3afe7b05f8289e27194626/transformed/lifecycle-livedata-core-2.8.7/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/0bc81016894490e64ff96df64564d1ed/transformed/lifecycle-viewmodel-savedstate-2.8.7/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/0bc81016894490e64ff96df64564d1ed/transformed/lifecycle-viewmodel-savedstate-2.8.7/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/7a25812926c6fb7753eb5771aad7829f/transformed/lifecycle-runtime-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/7a25812926c6fb7753eb5771aad7829f/transformed/lifecycle-runtime-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/77280005a86e1088c9f43e6fcd556653/transformed/lifecycle-viewmodel-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/77280005a86e1088c9f43e6fcd556653/transformed/lifecycle-viewmodel-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-extended-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f19b05c45a5923d901cabc5820572774/transformed/material-icons-extended-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-extended-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f19b05c45a5923d901cabc5820572774/transformed/material-icons-extended-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/d1809273631cd7d1872ef46f136cc1f8/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/d1809273631cd7d1872ef46f136cc1f8/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
+MERGED from [com.google.accompanist:accompanist-drawablepainter:0.36.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/a620b6d5c8637ae5f577628c01ac3935/transformed/accompanist-drawablepainter-0.36.0/AndroidManifest.xml:21:5-44
+MERGED from [com.google.accompanist:accompanist-drawablepainter:0.36.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/a620b6d5c8637ae5f577628c01ac3935/transformed/accompanist-drawablepainter-0.36.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.compose.ui:ui-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/83c98b5f9a1b55284e818c7458933751/transformed/ui-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/83c98b5f9a1b55284e818c7458933751/transformed/ui-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.9.3] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/1d89457a88bd8ab7b08f6d1c9df364c8/transformed/activity-ktx-1.9.3/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.9.3] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/1d89457a88bd8ab7b08f6d1c9df364c8/transformed/activity-ktx-1.9.3/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity:1.9.3] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/cef420a959bdfa4ec97085b8a55f9903/transformed/activity-1.9.3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.9.3] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/cef420a959bdfa4ec97085b8a55f9903/transformed/activity-1.9.3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity-compose:1.9.3] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/25a6ee15b54814ebfd294c9acabec880/transformed/activity-compose-1.9.3/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-compose:1.9.3] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/25a6ee15b54814ebfd294c9acabec880/transformed/activity-compose-1.9.3/AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore-core-android:1.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c5e3ffb5e5f46296425b83f11b49297b/transformed/datastore-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore-core-android:1.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c5e3ffb5e5f46296425b83f11b49297b/transformed/datastore-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore-android:1.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c6c261da637e4fc27ed815083cee4a11/transformed/datastore-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore-android:1.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c6c261da637e4fc27ed815083cee4a11/transformed/datastore-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore-preferences-android:1.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/fbd0be3bd492c819f5bbd92579bb96d0/transformed/datastore-preferences-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore-preferences-android:1.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/fbd0be3bd492c819f5bbd92579bb96d0/transformed/datastore-preferences-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/b4ac152ab4b3e850f1889fc786a24af5/transformed/runtime-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/b4ac152ab4b3e850f1889fc786a24af5/transformed/runtime-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/35178e8d63343a94137b183a2fe4bc61/transformed/runtime-saveable-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/35178e8d63343a94137b183a2fe4bc61/transformed/runtime-saveable-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/8ebb233c70b21402c2e482e0e494ff9d/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/8ebb233c70b21402c2e482e0e494ff9d/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/6b2c4dcf60fd1512dcaf7bb49af70960/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/6b2c4dcf60fd1512dcaf7bb49af70960/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4cdb9a1e6617f3d4a3adb0a631551a1/transformed/profileinstaller-1.4.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4cdb9a1e6617f3d4a3adb0a631551a1/transformed/profileinstaller-1.4.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/3a7db1d02eed3c694eb9d51941090b2b/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/3a7db1d02eed3c694eb9d51941090b2b/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.2.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/6b3d805cde21f36a5fe3e9df714ac630/transformed/tracing-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.tracing:tracing:1.2.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/6b3d805cde21f36a5fe3e9df714ac630/transformed/tracing-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/6c32acebd1243de2028f4ad54a024d41/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/6c32acebd1243de2028f4ad54a024d41/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/83e3ab28ecd5167c4f8957755158ed66/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/83e3ab28ecd5167c4f8957755158ed66/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.exifinterface:exifinterface:1.3.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/59b23a5192bf1533530e1423ffd96c97/transformed/exifinterface-1.3.7/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/59b23a5192bf1533530e1423ffd96c97/transformed/exifinterface-1.3.7/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/79e44e97d6042839dce262e318abdfc0/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/79e44e97d6042839dce262e318abdfc0/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.dagger:dagger-lint-aar:2.53.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/1f748e30fa58bc434d86f69331561fa4/transformed/dagger-lint-aar-2.53.1/AndroidManifest.xml:18:3-42
+MERGED from [com.google.dagger:dagger-lint-aar:2.53.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/1f748e30fa58bc434d86f69331561fa4/transformed/dagger-lint-aar-2.53.1/AndroidManifest.xml:18:3-42
+	android:targetSdkVersion
+		INJECTED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/WAIFONG/Documents/My Projects/ReviewApp/android/GotchuReviews/app/src/main/AndroidManifest.xml
+service#androidx.credentials.playservices.CredentialProviderMetadataHolder
+ADDED from [androidx.credentials:credentials-play-services-auth:1.5.0-alpha05] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f8ecbd7c8a7da6d9b6d7c35f6dc66a69/transformed/credentials-play-services-auth-1.5.0-alpha05/AndroidManifest.xml:24:9-32:19
+	android:enabled
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.5.0-alpha05] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f8ecbd7c8a7da6d9b6d7c35f6dc66a69/transformed/credentials-play-services-auth-1.5.0-alpha05/AndroidManifest.xml:26:13-35
+	android:exported
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.5.0-alpha05] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f8ecbd7c8a7da6d9b6d7c35f6dc66a69/transformed/credentials-play-services-auth-1.5.0-alpha05/AndroidManifest.xml:27:13-37
+	tools:ignore
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.5.0-alpha05] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f8ecbd7c8a7da6d9b6d7c35f6dc66a69/transformed/credentials-play-services-auth-1.5.0-alpha05/AndroidManifest.xml:28:13-60
+	android:name
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.5.0-alpha05] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f8ecbd7c8a7da6d9b6d7c35f6dc66a69/transformed/credentials-play-services-auth-1.5.0-alpha05/AndroidManifest.xml:25:13-94
+meta-data#androidx.credentials.CREDENTIAL_PROVIDER_KEY
+ADDED from [androidx.credentials:credentials-play-services-auth:1.5.0-alpha05] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f8ecbd7c8a7da6d9b6d7c35f6dc66a69/transformed/credentials-play-services-auth-1.5.0-alpha05/AndroidManifest.xml:29:13-31:104
+	android:value
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.5.0-alpha05] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f8ecbd7c8a7da6d9b6d7c35f6dc66a69/transformed/credentials-play-services-auth-1.5.0-alpha05/AndroidManifest.xml:31:17-101
+	android:name
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.5.0-alpha05] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f8ecbd7c8a7da6d9b6d7c35f6dc66a69/transformed/credentials-play-services-auth-1.5.0-alpha05/AndroidManifest.xml:30:17-76
+activity#androidx.credentials.playservices.HiddenActivity
+ADDED from [androidx.credentials:credentials-play-services-auth:1.5.0-alpha05] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f8ecbd7c8a7da6d9b6d7c35f6dc66a69/transformed/credentials-play-services-auth-1.5.0-alpha05/AndroidManifest.xml:34:9-41:20
+	android:fitsSystemWindows
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.5.0-alpha05] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f8ecbd7c8a7da6d9b6d7c35f6dc66a69/transformed/credentials-play-services-auth-1.5.0-alpha05/AndroidManifest.xml:39:13-45
+	android:enabled
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.5.0-alpha05] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f8ecbd7c8a7da6d9b6d7c35f6dc66a69/transformed/credentials-play-services-auth-1.5.0-alpha05/AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.5.0-alpha05] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f8ecbd7c8a7da6d9b6d7c35f6dc66a69/transformed/credentials-play-services-auth-1.5.0-alpha05/AndroidManifest.xml:38:13-37
+	android:configChanges
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.5.0-alpha05] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f8ecbd7c8a7da6d9b6d7c35f6dc66a69/transformed/credentials-play-services-auth-1.5.0-alpha05/AndroidManifest.xml:36:13-87
+	android:theme
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.5.0-alpha05] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f8ecbd7c8a7da6d9b6d7c35f6dc66a69/transformed/credentials-play-services-auth-1.5.0-alpha05/AndroidManifest.xml:40:13-48
+	android:name
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.5.0-alpha05] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f8ecbd7c8a7da6d9b6d7c35f6dc66a69/transformed/credentials-play-services-auth-1.5.0-alpha05/AndroidManifest.xml:35:13-76
+activity#androidx.credentials.playservices.IdentityCredentialApiHiddenActivity
+ADDED from [androidx.credentials:credentials-play-services-auth:1.5.0-alpha05] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f8ecbd7c8a7da6d9b6d7c35f6dc66a69/transformed/credentials-play-services-auth-1.5.0-alpha05/AndroidManifest.xml:42:9-49:20
+	android:fitsSystemWindows
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.5.0-alpha05] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f8ecbd7c8a7da6d9b6d7c35f6dc66a69/transformed/credentials-play-services-auth-1.5.0-alpha05/AndroidManifest.xml:47:13-45
+	android:enabled
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.5.0-alpha05] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f8ecbd7c8a7da6d9b6d7c35f6dc66a69/transformed/credentials-play-services-auth-1.5.0-alpha05/AndroidManifest.xml:45:13-35
+	android:exported
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.5.0-alpha05] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f8ecbd7c8a7da6d9b6d7c35f6dc66a69/transformed/credentials-play-services-auth-1.5.0-alpha05/AndroidManifest.xml:46:13-37
+	android:configChanges
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.5.0-alpha05] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f8ecbd7c8a7da6d9b6d7c35f6dc66a69/transformed/credentials-play-services-auth-1.5.0-alpha05/AndroidManifest.xml:44:13-87
+	android:theme
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.5.0-alpha05] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f8ecbd7c8a7da6d9b6d7c35f6dc66a69/transformed/credentials-play-services-auth-1.5.0-alpha05/AndroidManifest.xml:48:13-48
+	android:name
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.5.0-alpha05] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/f8ecbd7c8a7da6d9b6d7c35f6dc66a69/transformed/credentials-play-services-auth-1.5.0-alpha05/AndroidManifest.xml:43:13-97
+uses-permission#android.permission.USE_BIOMETRIC
+ADDED from [androidx.biometric:biometric:1.4.0-alpha02] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/a75e68717614e4a3ee403cbab47157cb/transformed/biometric-1.4.0-alpha02/AndroidManifest.xml:22:5-72
+	android:name
+		ADDED from [androidx.biometric:biometric:1.4.0-alpha02] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/a75e68717614e4a3ee403cbab47157cb/transformed/biometric-1.4.0-alpha02/AndroidManifest.xml:22:22-69
+uses-permission#android.permission.USE_FINGERPRINT
+ADDED from [androidx.biometric:biometric:1.4.0-alpha02] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/a75e68717614e4a3ee403cbab47157cb/transformed/biometric-1.4.0-alpha02/AndroidManifest.xml:25:5-74
+	android:name
+		ADDED from [androidx.biometric:biometric:1.4.0-alpha02] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/a75e68717614e4a3ee403cbab47157cb/transformed/biometric-1.4.0-alpha02/AndroidManifest.xml:25:22-71
+activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
+ADDED from [com.google.android.gms:play-services-auth:21.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/155a1a33cbe09afd63d517585aecc931/transformed/play-services-auth-21.1.1/AndroidManifest.xml:23:9-27:75
+	android:excludeFromRecents
+		ADDED from [com.google.android.gms:play-services-auth:21.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/155a1a33cbe09afd63d517585aecc931/transformed/play-services-auth-21.1.1/AndroidManifest.xml:25:13-46
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:21.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/155a1a33cbe09afd63d517585aecc931/transformed/play-services-auth-21.1.1/AndroidManifest.xml:26:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-auth:21.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/155a1a33cbe09afd63d517585aecc931/transformed/play-services-auth-21.1.1/AndroidManifest.xml:27:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:21.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/155a1a33cbe09afd63d517585aecc931/transformed/play-services-auth-21.1.1/AndroidManifest.xml:24:13-93
+service#com.google.android.gms.auth.api.signin.RevocationBoundService
+ADDED from [com.google.android.gms:play-services-auth:21.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/155a1a33cbe09afd63d517585aecc931/transformed/play-services-auth-21.1.1/AndroidManifest.xml:33:9-37:51
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:21.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/155a1a33cbe09afd63d517585aecc931/transformed/play-services-auth-21.1.1/AndroidManifest.xml:35:13-36
+	android:visibleToInstantApps
+		ADDED from [com.google.android.gms:play-services-auth:21.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/155a1a33cbe09afd63d517585aecc931/transformed/play-services-auth-21.1.1/AndroidManifest.xml:37:13-48
+	android:permission
+		ADDED from [com.google.android.gms:play-services-auth:21.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/155a1a33cbe09afd63d517585aecc931/transformed/play-services-auth-21.1.1/AndroidManifest.xml:36:13-107
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:21.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/155a1a33cbe09afd63d517585aecc931/transformed/play-services-auth-21.1.1/AndroidManifest.xml:34:13-89
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:18.5.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/31bf133680a4c0faaca01d1bdd4762c5/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:9-173
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:18.5.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/31bf133680a4c0faaca01d1bdd4762c5/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:146-170
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:18.5.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/31bf133680a4c0faaca01d1bdd4762c5/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:86-145
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:18.5.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/31bf133680a4c0faaca01d1bdd4762c5/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:19-85
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:18.4.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/9a48a3f56e8c05e48ec74d0287e44e47/transformed/play-services-basement-18.4.0/AndroidManifest.xml:6:9-122
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:18.4.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/9a48a3f56e8c05e48ec74d0287e44e47/transformed/play-services-basement-18.4.0/AndroidManifest.xml:6:66-119
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:18.4.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/9a48a3f56e8c05e48ec74d0287e44e47/transformed/play-services-basement-18.4.0/AndroidManifest.xml:6:20-65
+activity#androidx.compose.ui.tooling.PreviewActivity
+ADDED from [androidx.compose.ui:ui-tooling-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/acaa535f5552b34498e07e50d639166d/transformed/ui-tooling-release/AndroidManifest.xml:23:9-25:39
+	android:exported
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/acaa535f5552b34498e07e50d639166d/transformed/ui-tooling-release/AndroidManifest.xml:25:13-36
+	android:name
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.7.6] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/acaa535f5552b34498e07e50d639166d/transformed/ui-tooling-release/AndroidManifest.xml:24:13-71
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/db9188d55796f74d171843fdc88f4e92/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4ef135420f71a471d6122764198a303/transformed/lifecycle-process-2.8.7/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4ef135420f71a471d6122764198a303/transformed/lifecycle-process-2.8.7/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4cdb9a1e6617f3d4a3adb0a631551a1/transformed/profileinstaller-1.4.1/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4cdb9a1e6617f3d4a3adb0a631551a1/transformed/profileinstaller-1.4.1/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/3a7db1d02eed3c694eb9d51941090b2b/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/3a7db1d02eed3c694eb9d51941090b2b/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/db9188d55796f74d171843fdc88f4e92/transformed/emoji2-1.3.0/AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/db9188d55796f74d171843fdc88f4e92/transformed/emoji2-1.3.0/AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/db9188d55796f74d171843fdc88f4e92/transformed/emoji2-1.3.0/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/db9188d55796f74d171843fdc88f4e92/transformed/emoji2-1.3.0/AndroidManifest.xml:25:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/db9188d55796f74d171843fdc88f4e92/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/db9188d55796f74d171843fdc88f4e92/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/db9188d55796f74d171843fdc88f4e92/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.15.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/eda89d57d81c129374dcb4cb131b93fa/transformed/core-1.15.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.15.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/eda89d57d81c129374dcb4cb131b93fa/transformed/core-1.15.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.15.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/eda89d57d81c129374dcb4cb131b93fa/transformed/core-1.15.0/AndroidManifest.xml:23:9-81
+permission#com.gotchureviews.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.15.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/eda89d57d81c129374dcb4cb131b93fa/transformed/core-1.15.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.15.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/eda89d57d81c129374dcb4cb131b93fa/transformed/core-1.15.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.15.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/eda89d57d81c129374dcb4cb131b93fa/transformed/core-1.15.0/AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.15.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/eda89d57d81c129374dcb4cb131b93fa/transformed/core-1.15.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.15.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/eda89d57d81c129374dcb4cb131b93fa/transformed/core-1.15.0/AndroidManifest.xml:26:22-94
+uses-permission#com.gotchureviews.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.15.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/eda89d57d81c129374dcb4cb131b93fa/transformed/core-1.15.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.15.0] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/eda89d57d81c129374dcb4cb131b93fa/transformed/core-1.15.0/AndroidManifest.xml:26:22-94
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4ef135420f71a471d6122764198a303/transformed/lifecycle-process-2.8.7/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4ef135420f71a471d6122764198a303/transformed/lifecycle-process-2.8.7/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.8.7] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4ef135420f71a471d6122764198a303/transformed/lifecycle-process-2.8.7/AndroidManifest.xml:30:17-78
+meta-data#androidx.profileinstaller.ProfileInstallerInitializer
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4cdb9a1e6617f3d4a3adb0a631551a1/transformed/profileinstaller-1.4.1/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4cdb9a1e6617f3d4a3adb0a631551a1/transformed/profileinstaller-1.4.1/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4cdb9a1e6617f3d4a3adb0a631551a1/transformed/profileinstaller-1.4.1/AndroidManifest.xml:30:17-85
+receiver#androidx.profileinstaller.ProfileInstallReceiver
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4cdb9a1e6617f3d4a3adb0a631551a1/transformed/profileinstaller-1.4.1/AndroidManifest.xml:34:9-52:20
+	android:enabled
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4cdb9a1e6617f3d4a3adb0a631551a1/transformed/profileinstaller-1.4.1/AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4cdb9a1e6617f3d4a3adb0a631551a1/transformed/profileinstaller-1.4.1/AndroidManifest.xml:38:13-36
+	android:permission
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4cdb9a1e6617f3d4a3adb0a631551a1/transformed/profileinstaller-1.4.1/AndroidManifest.xml:39:13-57
+	android:directBootAware
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4cdb9a1e6617f3d4a3adb0a631551a1/transformed/profileinstaller-1.4.1/AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4cdb9a1e6617f3d4a3adb0a631551a1/transformed/profileinstaller-1.4.1/AndroidManifest.xml:35:13-76
+intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4cdb9a1e6617f3d4a3adb0a631551a1/transformed/profileinstaller-1.4.1/AndroidManifest.xml:40:13-42:29
+action#androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4cdb9a1e6617f3d4a3adb0a631551a1/transformed/profileinstaller-1.4.1/AndroidManifest.xml:41:17-91
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4cdb9a1e6617f3d4a3adb0a631551a1/transformed/profileinstaller-1.4.1/AndroidManifest.xml:41:25-88
+intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4cdb9a1e6617f3d4a3adb0a631551a1/transformed/profileinstaller-1.4.1/AndroidManifest.xml:43:13-45:29
+action#androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4cdb9a1e6617f3d4a3adb0a631551a1/transformed/profileinstaller-1.4.1/AndroidManifest.xml:44:17-85
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4cdb9a1e6617f3d4a3adb0a631551a1/transformed/profileinstaller-1.4.1/AndroidManifest.xml:44:25-82
+intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4cdb9a1e6617f3d4a3adb0a631551a1/transformed/profileinstaller-1.4.1/AndroidManifest.xml:46:13-48:29
+action#androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4cdb9a1e6617f3d4a3adb0a631551a1/transformed/profileinstaller-1.4.1/AndroidManifest.xml:47:17-88
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4cdb9a1e6617f3d4a3adb0a631551a1/transformed/profileinstaller-1.4.1/AndroidManifest.xml:47:25-85
+intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4cdb9a1e6617f3d4a3adb0a631551a1/transformed/profileinstaller-1.4.1/AndroidManifest.xml:49:13-51:29
+action#androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4cdb9a1e6617f3d4a3adb0a631551a1/transformed/profileinstaller-1.4.1/AndroidManifest.xml:50:17-95
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.1] /Users/WAIFONG/.gradle/caches/8.10.2/transforms/c4cdb9a1e6617f3d4a3adb0a631551a1/transformed/profileinstaller-1.4.1/AndroidManifest.xml:50:25-92
