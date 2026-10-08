@@ -34,16 +34,62 @@ GotchuReviews is a contractor review app. It has an iOS app (App Store ready) an
 - Gradle builds work through the proxy after this import
 - The Android emulator cannot sign into Google through the proxy — switch to a personal network to add a Google account
 
-### Google Sign-In Setup (TODO)
+### Google Sign-In Setup (Done)
 - Debug SHA-1: `04:2A:6C:E5:B3:4E:09:38:AC:E7:F2:92:7F:BE:A7:3B:E5:AE:C0:24`
-- An Android OAuth client ID needs to be created in Google Cloud Console (project `689036353712`) with the above SHA-1 and package name `com.gotchureviews.app`
-- The emulator needs a Google account signed in (requires non-corporate network)
+- Android OAuth client registered in Google Cloud Console (project `689036353712`)
+- Web Client ID used for Credential Manager: `689036353712-0ii028k1qi6f6t4q5f6iklv60ulkf497.apps.googleusercontent.com`
+- Google Sign-In tested and working on physical device
 
-### Remaining Tasks
-- [ ] Register Android OAuth client in Google Cloud Console
-- [ ] Sign into Google account on emulator (use personal network)
-- [ ] Test full Google Sign-In flow end-to-end
-- [ ] Replace placeholder launcher icons with real app icon (use Android Studio Image Asset tool)
+### Completed Android Tasks
+- [x] Register Android OAuth client in Google Cloud Console
+- [x] Google Sign-In working end-to-end
+- [x] App icon replaced with iOS icon
+- [x] Guest access (no login required to browse)
+- [x] Account deletion in settings
+- [x] Camera permission handling
+- [x] Review form submit button fix
+
+## Google Play Store Publishing Plan
+
+### 1. Developer Account
+- Sign up at https://play.google.com/console
+- One-time $25 registration fee
+
+### 2. Generate Signed Release AAB
+- In Android Studio: Build > Generate Signed Bundle / APK
+- Choose **Android App Bundle (AAB)**
+- Create a new keystore (back up the keystore file and passwords — cannot be recovered)
+- Select **release** build type
+
+### 3. Pre-Release Checklist
+- [ ] Verify `BASE_URL` in `AppModule.kt` points to production API
+- [ ] Remove or gate `HttpLoggingInterceptor` behind `BuildConfig.DEBUG` (currently logs all request/response bodies)
+- [ ] Set `versionCode` and `versionName` in `app/build.gradle.kts`
+- [ ] Test the release build on a real device
+- [ ] Generate a release signing key (keystore) and back it up securely
+
+### 4. Store Listing Assets Needed
+- App icon: 512x512 PNG (already have from iOS)
+- Feature graphic: 1024x500 PNG
+- Screenshots: at least 2 phone screenshots (min 320px, max 3840px)
+- Short description: up to 80 characters
+- Full description: up to 4000 characters
+- Privacy policy URL (reuse iOS privacy policy page)
+
+### 5. Play Console Setup
+- Create app in Play Console
+- Fill out Store listing (title, descriptions, screenshots, icon)
+- Complete Content rating questionnaire
+- Set Pricing & distribution (free)
+- Complete Data safety form (data collected, usage)
+- Set target audience and content settings
+
+### 6. Upload & Release
+- Go to Production > Create new release
+- Upload the `.aab` file
+- Add release notes
+- Review and roll out
+- Google review typically takes a few hours to a few days
 
 ## App Store Review - Rejection (October 5, 2026)
 
