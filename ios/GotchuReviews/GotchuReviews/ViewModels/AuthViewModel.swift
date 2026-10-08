@@ -18,6 +18,9 @@ class AuthViewModel: ObservableObject {
     private let redirectScheme = "com.googleusercontent.apps.689036353712-1do1c716605eh0ivss1dauter73v6mjc"
     private let firebaseAPIKey = "AIzaSyAqGLmvZy2agbEX9UGnGuDeQo05c6m0c3g"
 
+    /// Raw nonce kept for Firebase verification during Apple Sign-In
+    private var currentAppleNonce: String?
+
     init() {
         self.hasCompletedOnboarding = UserDefaults.standard.bool(forKey: "hasCompletedOnboarding")
         restoreSession()
@@ -143,7 +146,7 @@ class AuthViewModel: ObservableObject {
             }
 
             // Step 3: Send Firebase ID token to our backend
-            let user = try await APIClient.shared.signInWithGoogle(idToken: firebaseIdToken)
+            let user = try await APIClient.shared.signInWithFirebase(idToken: firebaseIdToken)
             APIClient.shared.authToken = firebaseIdToken
 
             // Persist
@@ -160,6 +163,127 @@ class AuthViewModel: ObservableObject {
         }
 
         isLoading = false
+    }
+
+    // MARK: - Apple Sign-In
+
+    func signInWithApple() {
+        isLoading = true
+        errorMessage = nil
+
+        let rawNonce = randomNonceString()
+        currentAppleNonce = rawNonce
+        let hashedNonce = SHA256.hash(data: Data(rawNonce.utf8))
+            .map { String(format: "%02x", $0) }
+            .joined()
+
+        let provider = ASAuthorizationAppleIDProvider()
+        let request = provider.createRequest()
+        request.requestedScopes = [.email, .fullName]
+        request.nonce = hashedNonce
+
+        let controller = ASAuthorizationController(authorizationRequests: [request])
+        let delegate = AppleSignInDelegate(viewModel: self)
+        // Retain the delegate for the duration of the flow
+        appleSignInDelegate = delegate
+        controller.delegate = delegate
+        controller.presentationContextProvider = WebAuthContextProvider.shared
+        controller.performRequests()
+    }
+
+    /// Stored to keep the delegate alive during the Apple Sign-In flow
+    private var appleSignInDelegate: AppleSignInDelegate?
+
+    fileprivate func handleAppleSignIn(credential: ASAuthorizationAppleIDCredential) {
+        guard let identityTokenData = credential.identityToken,
+              let identityToken = String(data: identityTokenData, encoding: .utf8),
+              let rawNonce = currentAppleNonce else {
+            errorMessage = "Failed to get Apple identity token"
+            isLoading = false
+            return
+        }
+
+        Task {
+            await exchangeAppleTokenForFirebase(identityToken: identityToken, rawNonce: rawNonce)
+        }
+    }
+
+    fileprivate func handleAppleSignInError(_ error: Error) {
+        if (error as NSError).code != ASAuthorizationError.canceled.rawValue {
+            errorMessage = error.localizedDescription
+        }
+        isLoading = false
+    }
+
+    private func exchangeAppleTokenForFirebase(identityToken: String, rawNonce: String) async {
+        let urlString = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithIdp?key=\(firebaseAPIKey)"
+        guard let url = URL(string: urlString) else {
+            errorMessage = "Invalid Firebase URL"
+            isLoading = false
+            return
+        }
+
+        let postBody = "id_token=\(identityToken)&providerId=apple.com&nonce=\(rawNonce)"
+        let body: [String: Any] = [
+            "postBody": postBody,
+            "requestUri": "http://localhost",
+            "returnIdpCredential": true,
+            "returnSecureToken": true
+        ]
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try? JSONSerialization.data(withJSONObject: body)
+
+        do {
+            let (data, _) = try await URLSession.shared.data(for: request)
+            guard let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
+                  let firebaseIdToken = json["idToken"] as? String,
+                  let refreshToken = json["refreshToken"] as? String else {
+                errorMessage = "Failed to get Firebase token"
+                isLoading = false
+                return
+            }
+
+            let user = try await APIClient.shared.signInWithFirebase(idToken: firebaseIdToken)
+            APIClient.shared.authToken = firebaseIdToken
+
+            UserDefaults.standard.set(firebaseIdToken, forKey: tokenKey)
+            UserDefaults.standard.set(refreshToken, forKey: refreshTokenKey)
+            if let userData = try? JSONEncoder().encode(user) {
+                UserDefaults.standard.set(userData, forKey: userKey)
+            }
+
+            currentUser = user
+            isSignedIn = true
+        } catch {
+            errorMessage = error.localizedDescription
+        }
+
+        isLoading = false
+    }
+
+    private func randomNonceString(length: Int = 32) -> String {
+        let charset = Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
+        var result = ""
+        var remainingLength = length
+
+        while remainingLength > 0 {
+            var randoms = [UInt8](repeating: 0, count: 16)
+            let status = SecRandomCopyBytes(kSecRandomDefault, randoms.count, &randoms)
+            guard status == errSecSuccess else { continue }
+
+            for random in randoms {
+                guard remainingLength > 0 else { break }
+                if random < charset.count {
+                    result.append(charset[Int(random)])
+                    remainingLength -= 1
+                }
+            }
+        }
+
+        return result
     }
 
     // MARK: - Session Persistence
@@ -243,7 +367,7 @@ class AuthViewModel: ObservableObject {
 
 // MARK: - ASWebAuthenticationSession context provider
 
-class WebAuthContextProvider: NSObject, ASWebAuthenticationPresentationContextProviding {
+class WebAuthContextProvider: NSObject, ASWebAuthenticationPresentationContextProviding, ASAuthorizationControllerPresentationContextProviding {
     static let shared = WebAuthContextProvider()
 
     func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
@@ -252,5 +376,42 @@ class WebAuthContextProvider: NSObject, ASWebAuthenticationPresentationContextPr
             return ASPresentationAnchor()
         }
         return window
+    }
+
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        guard let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let window = scene.windows.first else {
+            return ASPresentationAnchor()
+        }
+        return window
+    }
+}
+
+// MARK: - Apple Sign-In Delegate
+
+private class AppleSignInDelegate: NSObject, ASAuthorizationControllerDelegate {
+    private let viewModel: AuthViewModel
+
+    init(viewModel: AuthViewModel) {
+        self.viewModel = viewModel
+    }
+
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        guard let credential = authorization.credential as? ASAuthorizationAppleIDCredential else {
+            Task { @MainActor in
+                viewModel.handleAppleSignInError(ASAuthorizationError(.failed))
+            }
+            return
+        }
+
+        Task { @MainActor in
+            viewModel.handleAppleSignIn(credential: credential)
+        }
+    }
+
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        Task { @MainActor in
+            viewModel.handleAppleSignInError(error)
+        }
     }
 }
