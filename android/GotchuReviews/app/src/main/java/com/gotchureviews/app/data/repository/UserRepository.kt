@@ -21,4 +21,8 @@ class UserRepository @Inject constructor(
     suspend fun getCreditBalance(): Int {
         return apiService.getCreditBalance().balance
     }
+
+    suspend fun deleteAccount() {
+        apiService.deleteAccount()
+    }
 }

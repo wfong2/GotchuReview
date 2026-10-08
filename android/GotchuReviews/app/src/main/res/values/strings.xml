@@ -19,6 +19,7 @@
     <string name="onboarding_have_invoice_desc">Scan it and write a verified review</string>
     <string name="onboarding_looking_for">Looking for a contractor</string>
     <string name="onboarding_looking_for_desc">Browse reviews and pricing</string>
+    <string name="onboarding_continue_guest">Continue as Guest</string>
 
     <!-- Explore -->
     <string name="explore_search_placeholder">Search contractors…</string>
@@ -95,9 +96,9 @@
     <string name="review_reviewing">Reviewing</string>
     <string name="review_work">Work:</string>
     <string name="review_rate_experience">Rate your experience</string>
-    <string name="review_title_label">Review title</string>
-    <string name="review_title_placeholder">Summarize your experience</string>
-    <string name="review_body_label">Your review</string>
+    <string name="review_title_label">Review</string>
+    <string name="review_title_placeholder">Sum up your experience</string>
+    <string name="review_body_label">Description (optional)</string>
     <string name="review_invoice_verified">Invoice verified</string>
     <string name="review_submit">Submit Review</string>
     <string name="review_singular">review</string>
@@ -131,6 +132,9 @@
     <string name="settings_notify_price_update">Price updates</string>
     <string name="settings_notify_invoice">Invoice processed</string>
     <string name="settings_notify_draft">Draft reminders</string>
+    <string name="settings_delete_account">Delete Account</string>
+    <string name="settings_delete_account_message">Are you sure you want to delete your account? This action cannot be undone. All your data, reviews, and credits will be permanently removed.</string>
+    <string name="settings_delete">Delete</string>
     <string name="settings_sign_out">Sign Out</string>
     <string name="settings_about">About</string>
     <string name="settings_version">Version</string>
@@ -150,6 +154,8 @@
     <string name="common_cancel">Cancel</string>
     <string name="common_done">Done</string>
     <string name="common_sign_in">Sign In</string>
+    <string name="sign_in_to_scan">Sign in to scan invoices and write verified reviews</string>
+    <string name="sign_in_to_history">Sign in to see your service history and invoices</string>
 
     <!-- Errors -->
     <string name="error_invalid_url">Invalid URL</string>

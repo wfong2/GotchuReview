@@ -1,15 +1,16 @@
 package com.gotchureviews.app.ui.onboarding
 
-import android.content.Context
+import android.app.Activity
 import androidx.credentials.CredentialManager
 import androidx.credentials.GetCredentialRequest
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.google.android.libraries.identity.googleid.GetGoogleIdOption
+import com.google.android.libraries.identity.googleid.GetSignInWithGoogleOption
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential
 import com.gotchureviews.app.data.local.TokenStore
 import com.gotchureviews.app.data.model.AppUser
 import com.gotchureviews.app.data.repository.AuthRepository
+import com.gotchureviews.app.data.repository.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -23,11 +24,12 @@ import javax.inject.Inject
 class OnboardingViewModel @Inject constructor(
     private val authRepository: AuthRepository,
     private val tokenStore: TokenStore,
+    private val userRepository: UserRepository,
 ) : ViewModel() {
 
     companion object {
         private const val GOOGLE_CLIENT_ID =
-            "689036353712-1do1c716605eh0ivss1dauter73v6mjc.apps.googleusercontent.com"
+            "689036353712-0ii028k1qi6f6t4q5f6iklv60ulkf497.apps.googleusercontent.com"
     }
 
     val hasCompletedOnboarding: StateFlow<Boolean> = tokenStore.hasCompletedOnboarding
@@ -55,24 +57,22 @@ class OnboardingViewModel @Inject constructor(
         }
     }
 
-    fun signInWithGoogle(context: Context) {
+    fun signInWithGoogle(activity: Activity) {
         viewModelScope.launch {
             _isLoading.value = true
             _errorMessage.value = null
 
             try {
-                val credentialManager = CredentialManager.create(context)
+                val credentialManager = CredentialManager.create(activity)
 
-                val googleIdOption = GetGoogleIdOption.Builder()
-                    .setFilterByAuthorizedAccounts(false)
-                    .setServerClientId(GOOGLE_CLIENT_ID)
+                val signInOption = GetSignInWithGoogleOption.Builder(GOOGLE_CLIENT_ID)
                     .build()
 
                 val request = GetCredentialRequest.Builder()
-                    .addCredentialOption(googleIdOption)
+                    .addCredentialOption(signInOption)
                     .build()
 
-                val result = credentialManager.getCredential(context, request)
+                val result = credentialManager.getCredential(activity, request)
                 val credential = result.credential
 
                 val googleIdTokenCredential = GoogleIdTokenCredential.createFrom(credential.data)
@@ -92,6 +92,25 @@ class OnboardingViewModel @Inject constructor(
     fun completeOnboarding() {
         viewModelScope.launch {
             authRepository.setOnboardingCompleted()
+        }
+    }
+
+    private val _isDeleting = MutableStateFlow(false)
+    val isDeleting: StateFlow<Boolean> = _isDeleting.asStateFlow()
+
+    fun deleteAccount(onComplete: () -> Unit) {
+        viewModelScope.launch {
+            _isDeleting.value = true
+            try {
+                userRepository.deleteAccount()
+                authRepository.signOut()
+                _currentUser.value = null
+                _isSignedIn.value = false
+                onComplete()
+            } catch (e: Exception) {
+                _errorMessage.value = e.localizedMessage ?: "Failed to delete account"
+            }
+            _isDeleting.value = false
         }
     }
 

@@ -11,6 +11,7 @@ import com.gotchureviews.app.data.remote.dto.ReviewResponse
 import com.gotchureviews.app.data.remote.dto.ReviewSubmission
 import okhttp3.MultipartBody
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.Multipart
 import retrofit2.http.POST
@@ -49,6 +50,9 @@ interface ApiService {
     // User
     @GET("users/me")
     suspend fun getCurrentUser(): AuthResponse
+
+    @DELETE("users/me")
+    suspend fun deleteAccount()
 
     @GET("users/me/history")
     suspend fun getVendorHistory(@Query("groupBy") groupBy: String = "vendor"): VendorHistoryResponse

@@ -1,5 +1,7 @@
 package com.gotchureviews.app.ui.scan
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
 import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -33,6 +35,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.core.content.ContextCompat
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.core.content.FileProvider
@@ -65,6 +68,27 @@ fun CameraScreen(
                 bitmap.compress(android.graphics.Bitmap.CompressFormat.JPEG, 80, stream)
                 viewModel.extractInvoice(stream.toByteArray())
             }
+        }
+    }
+
+    // Helper to create URI and launch camera
+    fun launchCamera() {
+        val cacheDir = File(context.cacheDir, "camera").also { it.mkdirs() }
+        val file = File(cacheDir, "photo_${System.currentTimeMillis()}.jpg")
+        photoUri = FileProvider.getUriForFile(
+            context,
+            "${context.packageName}.fileprovider",
+            file,
+        )
+        cameraLauncher.launch(photoUri!!)
+    }
+
+    // Camera permission
+    val permissionLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.RequestPermission(),
+    ) { granted ->
+        if (granted) {
+            launchCamera()
         }
     }
 
@@ -151,14 +175,13 @@ fun CameraScreen(
         // Take Photo
         Button(
             onClick = {
-                val cacheDir = File(context.cacheDir, "camera").also { it.mkdirs() }
-                val file = File(cacheDir, "photo_${System.currentTimeMillis()}.jpg")
-                photoUri = FileProvider.getUriForFile(
-                    context,
-                    "${context.packageName}.fileprovider",
-                    file,
-                )
-                cameraLauncher.launch(photoUri!!)
+                if (ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA)
+                    == PackageManager.PERMISSION_GRANTED
+                ) {
+                    launchCamera()
+                } else {
+                    permissionLauncher.launch(Manifest.permission.CAMERA)
+                }
             },
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(14.dp),

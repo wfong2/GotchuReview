@@ -48,6 +48,15 @@ fun WriteReviewScreen(
     val reviewTitle by viewModel.reviewTitle.collectAsState()
     val reviewBody by viewModel.reviewBody.collectAsState()
     val isSubmitting by viewModel.isSubmitting.collectAsState()
+    val selectedContractorId by viewModel.selectedContractorId.collectAsState()
+    val isNewContractor by viewModel.isNewContractor.collectAsState()
+
+    val canSubmit = ratingQuality > 0 &&
+            ratingCommunication > 0 &&
+            ratingTimeliness > 0 &&
+            ratingValue > 0 &&
+            reviewTitle.isNotBlank() &&
+            (selectedContractorId != null || isNewContractor)
 
     val result = extractionResult ?: return
 
@@ -150,7 +159,7 @@ fun WriteReviewScreen(
         // Submit
         Button(
             onClick = { viewModel.submitReview() },
-            enabled = viewModel.canSubmitReview && !isSubmitting,
+            enabled = canSubmit && !isSubmitting,
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(14.dp),
         ) {

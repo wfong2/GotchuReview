@@ -10,22 +10,19 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.pager.HorizontalPager
-import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CameraAlt
 import androidx.compose.material.icons.filled.MonetizationOn
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Schedule
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.VerifiedUser
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -38,51 +35,46 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import android.app.Activity
 import com.gotchureviews.app.R
 
 @Composable
 fun OnboardingScreen(
     viewModel: OnboardingViewModel,
     onOnboardingComplete: () -> Unit,
+    showGuestOption: Boolean = true,
 ) {
     val isSignedIn by viewModel.isSignedIn.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
     val errorMessage by viewModel.errorMessage.collectAsState()
-    val context = LocalContext.current
-
-    val pagerState = rememberPagerState(pageCount = { 2 })
+    val activity = LocalContext.current as Activity
 
     LaunchedEffect(isSignedIn) {
-        if (isSignedIn && pagerState.currentPage == 0) {
-            pagerState.animateScrollToPage(1)
+        if (isSignedIn) {
+            viewModel.completeOnboarding()
+            onOnboardingComplete()
         }
     }
 
-    HorizontalPager(
-        state = pagerState,
-        userScrollEnabled = false,
-    ) { page ->
-        when (page) {
-            0 -> WelcomePage(
-                isLoading = isLoading,
-                errorMessage = errorMessage,
-                onSignIn = { viewModel.signInWithGoogle(context) },
-            )
-            1 -> PathSelectionPage(
-                onSelectPath = {
-                    viewModel.completeOnboarding()
-                    onOnboardingComplete()
-                },
-            )
-        }
-    }
+    WelcomePage(
+        isLoading = isLoading,
+        errorMessage = errorMessage,
+        showGuestOption = showGuestOption,
+        onSignIn = { viewModel.signInWithGoogle(activity) },
+        onContinueAsGuest = {
+            viewModel.completeOnboarding()
+            onOnboardingComplete()
+        },
+    )
 }
 
 @Composable
 private fun WelcomePage(
     isLoading: Boolean,
     errorMessage: String?,
+    showGuestOption: Boolean,
     onSignIn: () -> Unit,
+    onContinueAsGuest: () -> Unit,
 ) {
     Column(
         modifier = Modifier
@@ -157,92 +149,17 @@ private fun WelcomePage(
             )
         }
 
+        if (showGuestOption) {
+            Spacer(Modifier.height(8.dp))
+            TextButton(onClick = onContinueAsGuest) {
+                Text(
+                    text = stringResource(R.string.onboarding_continue_guest),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+        }
+
         Spacer(Modifier.height(20.dp))
-    }
-}
-
-@Composable
-private fun PathSelectionPage(
-    onSelectPath: () -> Unit,
-) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(32.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
-    ) {
-        Spacer(Modifier.weight(1f))
-
-        Text(
-            text = stringResource(R.string.onboarding_what_to_do),
-            style = MaterialTheme.typography.headlineMedium,
-            fontWeight = FontWeight.SemiBold,
-        )
-
-        Spacer(Modifier.height(24.dp))
-
-        Surface(
-            onClick = onSelectPath,
-            shape = RoundedCornerShape(16.dp),
-            color = MaterialTheme.colorScheme.surfaceContainerLow,
-            modifier = Modifier.fillMaxWidth(),
-        ) {
-            Column(
-                modifier = Modifier.padding(24.dp),
-                horizontalAlignment = Alignment.CenterHorizontally,
-            ) {
-                Icon(
-                    imageVector = Icons.Filled.CameraAlt,
-                    contentDescription = null,
-                    modifier = Modifier.size(36.dp),
-                    tint = MaterialTheme.colorScheme.primary,
-                )
-                Spacer(Modifier.height(8.dp))
-                Text(
-                    text = stringResource(R.string.onboarding_have_invoice),
-                    style = MaterialTheme.typography.titleMedium,
-                )
-                Text(
-                    text = stringResource(R.string.onboarding_have_invoice_desc),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
-        }
-
-        Spacer(Modifier.height(16.dp))
-
-        Surface(
-            onClick = onSelectPath,
-            shape = RoundedCornerShape(16.dp),
-            color = MaterialTheme.colorScheme.surfaceContainerLow,
-            modifier = Modifier.fillMaxWidth(),
-        ) {
-            Column(
-                modifier = Modifier.padding(24.dp),
-                horizontalAlignment = Alignment.CenterHorizontally,
-            ) {
-                Icon(
-                    imageVector = Icons.Filled.Search,
-                    contentDescription = null,
-                    modifier = Modifier.size(36.dp),
-                    tint = MaterialTheme.colorScheme.primary,
-                )
-                Spacer(Modifier.height(8.dp))
-                Text(
-                    text = stringResource(R.string.onboarding_looking_for),
-                    style = MaterialTheme.typography.titleMedium,
-                )
-                Text(
-                    text = stringResource(R.string.onboarding_looking_for_desc),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
-        }
-
-        Spacer(Modifier.weight(1f))
     }
 }
 

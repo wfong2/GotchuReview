@@ -16,9 +16,8 @@ fun GotchuNavGraph() {
     val navController = rememberNavController()
     val onboardingViewModel: OnboardingViewModel = hiltViewModel()
     val hasCompletedOnboarding by onboardingViewModel.hasCompletedOnboarding.collectAsState()
-    val isSignedIn by onboardingViewModel.isSignedIn.collectAsState()
 
-    val startDestination: Screen = if (hasCompletedOnboarding && isSignedIn) {
+    val startDestination: Screen = if (hasCompletedOnboarding) {
         Screen.Main
     } else {
         Screen.Onboarding

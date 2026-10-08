@@ -133,6 +133,8 @@ class ScanViewModel @Inject constructor(
                 val topMatch = result.contractorMatches.firstOrNull()
                 if (topMatch != null && topMatch.confidence > 70) {
                     _selectedContractorId.value = topMatch.contractor.id
+                } else if (result.contractorMatches.isEmpty()) {
+                    _isNewContractor.value = true
                 }
 
                 _flowStep.value = ScanFlowStep.EXTRACTED
