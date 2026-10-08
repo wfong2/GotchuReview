@@ -3,6 +3,9 @@ import SwiftUI
 struct SettingsView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
     @Environment(\.dismiss) private var dismiss
+    @State private var showSignIn = false
+    @State private var showDeleteConfirmation = false
+    @State private var isDeleting = false
 
     var body: some View {
         NavigationStack {
@@ -28,41 +31,54 @@ struct SettingsView: View {
                                 .foregroundColor(.secondary)
                             Spacer()
                             Button("Sign In") {
-                                authViewModel.hasCompletedOnboarding = false
-                                UserDefaults.standard.set(false, forKey: "hasCompletedOnboarding")
-                                dismiss()
+                                showSignIn = true
                             }
                         }
                     }
                 }
 
                 // Notifications
-                Section(NSLocalizedString("settings.notifications", comment: "")) {
-                    Toggle(
-                        NSLocalizedString("settings.notifyNewReview", comment: ""),
-                        isOn: .constant(true)
-                    )
-                    Toggle(
-                        NSLocalizedString("settings.notifyPriceUpdate", comment: ""),
-                        isOn: .constant(true)
-                    )
-                    Toggle(
-                        NSLocalizedString("settings.notifyInvoice", comment: ""),
-                        isOn: .constant(true)
-                    )
-                    Toggle(
-                        NSLocalizedString("settings.notifyDraft", comment: ""),
-                        isOn: .constant(true)
-                    )
+                if authViewModel.isSignedIn {
+                    Section(NSLocalizedString("settings.notifications", comment: "")) {
+                        Toggle(
+                            NSLocalizedString("settings.notifyNewReview", comment: ""),
+                            isOn: .constant(true)
+                        )
+                        Toggle(
+                            NSLocalizedString("settings.notifyPriceUpdate", comment: ""),
+                            isOn: .constant(true)
+                        )
+                        Toggle(
+                            NSLocalizedString("settings.notifyInvoice", comment: ""),
+                            isOn: .constant(true)
+                        )
+                        Toggle(
+                            NSLocalizedString("settings.notifyDraft", comment: ""),
+                            isOn: .constant(true)
+                        )
+                    }
                 }
 
                 // Actions
                 Section {
                     if authViewModel.isSignedIn {
                         Button(role: .destructive) {
+                            showDeleteConfirmation = true
+                        } label: {
+                            if isDeleting {
+                                HStack {
+                                    Text("Deleting Account…")
+                                    Spacer()
+                                    ProgressView()
+                                }
+                            } else {
+                                Text("Delete Account")
+                            }
+                        }
+                        .disabled(isDeleting)
+
+                        Button(role: .destructive) {
                             authViewModel.signOut()
-                            authViewModel.hasCompletedOnboarding = false
-                            UserDefaults.standard.set(false, forKey: "hasCompletedOnboarding")
                             dismiss()
                         } label: {
                             Text(NSLocalizedString("settings.signOut", comment: ""))
@@ -88,6 +104,42 @@ struct SettingsView: View {
                         dismiss()
                     }
                 }
+            }
+            .sheet(isPresented: $showSignIn) {
+                OnboardingView(showGuestOption: false)
+                    .environmentObject(authViewModel)
+            }
+            .onChange(of: authViewModel.isSignedIn) { _, signedIn in
+                if signedIn {
+                    showSignIn = false
+                }
+            }
+            .alert("Delete Account", isPresented: $showDeleteConfirmation) {
+                Button("Cancel", role: .cancel) { }
+                Button("Delete", role: .destructive) {
+                    Task {
+                        await deleteAccount()
+                    }
+                }
+            } message: {
+                Text("Are you sure you want to delete your account? This action cannot be undone. All your data, reviews, and credits will be permanently removed.")
+            }
+        }
+    }
+
+    private func deleteAccount() async {
+        isDeleting = true
+        do {
+            try await APIClient.shared.deleteAccount()
+            await MainActor.run {
+                authViewModel.signOut()
+                isDeleting = false
+                dismiss()
+            }
+        } catch {
+            await MainActor.run {
+                isDeleting = false
+                authViewModel.errorMessage = error.localizedDescription
             }
         }
     }

@@ -1,140 +1,111 @@
 import SwiftUI
+import AuthenticationServices
 
 struct OnboardingView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
-    @State private var currentPage = 0
+    @Environment(\.dismiss) private var dismiss
+    var showGuestOption: Bool = true
 
     var body: some View {
-        TabView(selection: $currentPage) {
-            // Screen 1: Welcome + Sign In
-            VStack(spacing: 24) {
-                Spacer()
+        VStack(spacing: 24) {
+            Spacer()
 
-                Image(systemName: "checkmark.shield.fill")
-                    .font(.system(size: 72))
-                    .foregroundColor(.blue)
+            Image(systemName: "checkmark.shield.fill")
+                .font(.system(size: 72))
+                .foregroundColor(.blue)
 
-                Text(NSLocalizedString("onboarding.title", comment: ""))
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .multilineTextAlignment(.center)
+            Text(NSLocalizedString("onboarding.title", comment: ""))
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .multilineTextAlignment(.center)
 
-                Text(NSLocalizedString("onboarding.subtitle", comment: ""))
-                    .font(.title3)
-                    .foregroundColor(.secondary)
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal, 32)
-
-                VStack(alignment: .leading, spacing: 16) {
-                    OnboardingFeatureRow(
-                        icon: "camera.fill",
-                        text: NSLocalizedString("onboarding.feature1", comment: "")
-                    )
-                    OnboardingFeatureRow(
-                        icon: "dollarsign.circle.fill",
-                        text: NSLocalizedString("onboarding.feature2", comment: "")
-                    )
-                    OnboardingFeatureRow(
-                        icon: "clock.fill",
-                        text: NSLocalizedString("onboarding.feature3", comment: "")
-                    )
-                }
-                .padding(.horizontal, 40)
-
-                Spacer()
-
-                // Google Sign-In button
-                Button {
-                    authViewModel.signInWithGoogle()
-                } label: {
-                    HStack(spacing: 12) {
-                        Image(systemName: "person.crop.circle.fill")
-                            .font(.title3)
-                        Text("Sign in with Google")
-                            .font(.headline)
-                    }
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(14)
-                }
+            Text(NSLocalizedString("onboarding.subtitle", comment: ""))
+                .font(.title3)
+                .foregroundColor(.secondary)
+                .multilineTextAlignment(.center)
                 .padding(.horizontal, 32)
-                .disabled(authViewModel.isLoading)
 
-                if authViewModel.isLoading {
-                    ProgressView()
-                }
-
-                if let error = authViewModel.errorMessage {
-                    Text(error)
-                        .font(.caption)
-                        .foregroundColor(.red)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, 32)
-                }
-
-                Spacer().frame(height: 20)
+            VStack(alignment: .leading, spacing: 16) {
+                OnboardingFeatureRow(
+                    icon: "camera.fill",
+                    text: NSLocalizedString("onboarding.feature1", comment: "")
+                )
+                OnboardingFeatureRow(
+                    icon: "dollarsign.circle.fill",
+                    text: NSLocalizedString("onboarding.feature2", comment: "")
+                )
+                OnboardingFeatureRow(
+                    icon: "clock.fill",
+                    text: NSLocalizedString("onboarding.feature3", comment: "")
+                )
             }
-            .tag(0)
-            .onChange(of: authViewModel.isSignedIn) { _, signedIn in
-                if signedIn {
-                    withAnimation { currentPage = 1 }
-                }
+            .padding(.horizontal, 40)
+
+            Spacer()
+
+            // Sign in with Apple button
+            Button {
+                authViewModel.signInWithApple()
+            } label: {
+                SignInWithAppleButton(.signIn) { _ in } onCompletion: { _ in }
+                    .signInWithAppleButtonStyle(.black)
+                    .frame(height: 50)
+                    .allowsHitTesting(false)
             }
+            .cornerRadius(14)
+            .padding(.horizontal, 32)
+            .disabled(authViewModel.isLoading)
 
-            // Screen 2: Choose path
-            VStack(spacing: 24) {
-                Spacer()
-
-                Text(NSLocalizedString("onboarding.whatToDo", comment: ""))
-                    .font(.title2)
-                    .fontWeight(.semibold)
-
-                Button {
-                    authViewModel.completeOnboarding()
-                } label: {
-                    VStack(spacing: 8) {
-                        Image(systemName: "doc.text.viewfinder")
-                            .font(.system(size: 36))
-                        Text(NSLocalizedString("onboarding.haveInvoice", comment: ""))
-                            .font(.headline)
-                        Text(NSLocalizedString("onboarding.haveInvoiceDesc", comment: ""))
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                    }
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 24)
-                    .background(Color(.systemGray6))
-                    .cornerRadius(16)
+            // Google Sign-In button
+            Button {
+                authViewModel.signInWithGoogle()
+            } label: {
+                HStack(spacing: 12) {
+                    Image(systemName: "person.crop.circle.fill")
+                        .font(.title3)
+                    Text("Sign in with Google")
+                        .font(.headline)
                 }
-                .buttonStyle(.plain)
-
-                Button {
-                    authViewModel.completeOnboarding()
-                } label: {
-                    VStack(spacing: 8) {
-                        Image(systemName: "magnifyingglass")
-                            .font(.system(size: 36))
-                        Text(NSLocalizedString("onboarding.lookingFor", comment: ""))
-                            .font(.headline)
-                        Text(NSLocalizedString("onboarding.lookingForDesc", comment: ""))
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                    }
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 24)
-                    .background(Color(.systemGray6))
-                    .cornerRadius(16)
-                }
-                .buttonStyle(.plain)
-
-                Spacer()
+                .foregroundColor(.white)
+                .frame(maxWidth: .infinity)
+                .padding()
+                .background(Color.blue)
+                .cornerRadius(14)
             }
             .padding(.horizontal, 32)
-            .tag(1)
+            .disabled(authViewModel.isLoading)
+
+            if authViewModel.isLoading {
+                ProgressView()
+            }
+
+            if let error = authViewModel.errorMessage {
+                Text(error)
+                    .font(.caption)
+                    .foregroundColor(.red)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 32)
+            }
+
+            if showGuestOption {
+                Button {
+                    authViewModel.completeOnboarding()
+                } label: {
+                    Text("Continue as Guest")
+                        .font(.subheadline)
+                        .foregroundColor(.blue)
+                }
+                .padding(.top, 4)
+            }
+
+            Spacer().frame(height: 20)
         }
-        .tabViewStyle(.page(indexDisplayMode: .never))
+        .onChange(of: authViewModel.isSignedIn) { _, signedIn in
+            if signedIn {
+                authViewModel.completeOnboarding()
+                dismiss()
+            }
+        }
     }
 }
 

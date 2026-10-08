@@ -1,6 +1,7 @@
 import { Router, Response } from 'express';
 import { requireAuth, AuthRequest } from '../middleware/auth';
 import prisma from '../config/database';
+import { recomputeContractorPricing, recomputeContractorRatings } from '../services/pricing';
 
 const router = Router();
 
@@ -48,6 +49,50 @@ router.patch('/me', requireAuth, async (req: AuthRequest, res: Response) => {
   } catch (error) {
     console.error('User update error:', error);
     res.status(500).json({ error: 'Failed to update user' });
+  }
+});
+
+// DELETE /api/v1/users/me — Delete user account and all associated data
+router.delete('/me', requireAuth, async (req: AuthRequest, res: Response) => {
+  try {
+    const userId = req.user!.id;
+
+    // Find affected contractors before deleting (for aggregate recomputation)
+    const affectedReviews = await prisma.review.findMany({
+      where: { userId },
+      select: { contractorId: true },
+    });
+    const affectedInvoices = await prisma.invoice.findMany({
+      where: { userId },
+      select: { contractorId: true },
+    });
+    const affectedContractorIds = [
+      ...new Set([
+        ...affectedReviews.map((r) => r.contractorId),
+        ...affectedInvoices.map((i) => i.contractorId),
+      ]),
+    ];
+
+    // Delete all user data in a transaction (order matters for foreign keys)
+    await prisma.$transaction([
+      prisma.creditTransaction.deleteMany({ where: { userId } }),
+      prisma.review.deleteMany({ where: { userId } }),
+      prisma.invoice.deleteMany({ where: { userId } }),
+      prisma.user.delete({ where: { id: userId } }),
+    ]);
+
+    // Recompute contractor aggregates outside the transaction
+    await Promise.allSettled(
+      affectedContractorIds.map(async (contractorId) => {
+        await recomputeContractorRatings(contractorId);
+        await recomputeContractorPricing(contractorId);
+      })
+    );
+
+    res.status(200).json({ message: 'Account deleted successfully' });
+  } catch (error) {
+    console.error('Account deletion error:', error);
+    res.status(500).json({ error: 'Failed to delete account' });
   }
 });
 

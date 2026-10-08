@@ -1,8 +1,10 @@
 import SwiftUI
 
 struct ExploreView: View {
+    @EnvironmentObject var authViewModel: AuthViewModel
     @StateObject private var viewModel = ExploreViewModel()
     @State private var showSearch = false
+    @State private var showSettings = false
 
     var body: some View {
         NavigationStack {
@@ -116,6 +118,18 @@ struct ExploreView: View {
             }
             .scrollDismissesKeyboard(.interactively)
             .navigationTitle(NSLocalizedString("app.name", comment: ""))
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        showSettings = true
+                    } label: {
+                        Image(systemName: "gearshape")
+                    }
+                }
+            }
+            .sheet(isPresented: $showSettings) {
+                SettingsView()
+            }
             .navigationDestination(for: String.self) { contractorId in
                 ContractorDetailView(contractorId: contractorId)
             }

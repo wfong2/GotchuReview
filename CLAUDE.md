@@ -44,3 +44,24 @@ GotchuReviews is a contractor review app. It has an iOS app (App Store ready) an
 - [ ] Sign into Google account on emulator (use personal network)
 - [ ] Test full Google Sign-In flow end-to-end
 - [ ] Replace placeholder launcher icons with real app icon (use Android Studio Image Asset tool)
+
+## App Store Review - Rejection (October 5, 2026)
+
+Submission ID: 41ccd220-46fc-4b04-8ec2-fc689d6264a9
+Version reviewed: 1.0 (2)
+Devices: iPhone 17 Pro Max, iPad Air 11-inch (M3)
+
+### Issue 1: Guideline 5.1.1(v) - Guest Access Required
+**Status:** [x] Done
+The app requires login before browsing reviews and services. Apple requires that non-account-based features be freely accessible without registration.
+**Fix applied:** Added "Continue as Guest" option on onboarding. Guests can browse the Explore tab freely. Scan and History tabs show a sign-in prompt. Settings accessible from Explore tab gear icon.
+
+### Issue 2: Guideline 5.1.1(v) - Account Deletion Required
+**Status:** [x] Done
+The app supports account creation but has no account deletion option.
+**Fix applied:** Added "Delete Account" button in Settings with confirmation alert. Calls DELETE /users/me endpoint. After deletion, user is signed out and stays in guest mode. Backend endpoint needs to exist (DELETE /users/me).
+
+### Issue 3: Guideline 2.1(b) - Business Model Clarification
+**Status:** [x] Done (reply drafted)
+Apple wants to understand the business model.
+**Fix:** Reply drafted explaining the app is free, credits are earned (not purchased), no paid content/subscriptions/IAP.

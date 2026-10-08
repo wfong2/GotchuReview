@@ -78,6 +78,10 @@ class APIClient {
     }
 
     func signInWithGoogle(idToken: String) async throws -> AppUser {
+        try await signInWithFirebase(idToken: idToken)
+    }
+
+    func signInWithFirebase(idToken: String) async throws -> AppUser {
         let body = try JSONEncoder().encode(["idToken": idToken])
         guard let request = makeRequest("/auth/google", method: "POST", body: body) else {
             throw APIError.invalidURL
@@ -197,6 +201,22 @@ class APIClient {
     }
 
     // MARK: - User
+
+    func deleteAccount() async throws {
+        guard let request = makeRequest("/users/me", method: "DELETE") else {
+            throw APIError.invalidURL
+        }
+        let (_, response) = try await URLSession.shared.data(for: request)
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw APIError.networkError(URLError(.badServerResponse))
+        }
+        guard (200...204).contains(httpResponse.statusCode) else {
+            if httpResponse.statusCode == 401 {
+                throw APIError.unauthorized
+            }
+            throw APIError.serverError("Failed to delete account")
+        }
+    }
 
     func getCurrentUser() async throws -> AppUser {
         guard let request = makeRequest("/users/me") else {
