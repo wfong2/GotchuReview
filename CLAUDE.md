@@ -63,7 +63,7 @@ GotchuReviews is a contractor review app. It has an iOS app (App Store ready) an
 
 ### 3. Pre-Release Checklist
 - [ ] Verify `BASE_URL` in `AppModule.kt` points to production API
-- [ ] Remove or gate `HttpLoggingInterceptor` behind `BuildConfig.DEBUG` (currently logs all request/response bodies)
+- [x] Remove or gate `HttpLoggingInterceptor` behind `BuildConfig.DEBUG` (currently logs all request/response bodies)
 - [ ] Set `versionCode` and `versionName` in `app/build.gradle.kts`
 - [ ] Test the release build on a real device
 - [ ] Generate a release signing key (keystore) and back it up securely
